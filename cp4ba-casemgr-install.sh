@@ -1,0 +1,100 @@
+#!/bin/bash
+
+_me=$(basename "$0")
+
+CUR_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+PARENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )"
+
+_DIR=""
+_VER=""
+_STAY=true
+_REMOVE_TGZ=false
+_SHOW_VERSIONS=false
+
+#--------------------------------------------------------
+_CLR_RED="\033[0;31m"   #'0;31' is Red's ANSI color code
+_CLR_GREEN="\033[0;32m"   #'0;32' is Green's ANSI color code
+_CLR_YELLOW="\033[1;32m"   #'1;32' is Yellow's ANSI color code
+_CLR_BLUE="\033[0;34m"   #'0;34' is Blue's ANSI color code
+_CLR_NC="\033[0m"
+
+# "\33[32m[✔] ${1}\33[0m"
+# "\33[33m[✗] ${1}\33[0m"
+# bold: echo -e "\x1B[1m${1}\x1B[0m\n"
+
+#--------------------------------------------------------
+# read command line params
+while getopts d:v:nrs flag
+do
+    case "${flag}" in
+        d) _DIR=${OPTARG};;
+        v) _VER=${OPTARG};;
+        n) _STAY=false;;
+        r) _REMOVE_TGZ=true;;
+        s) _SHOW_VERSIONS=true;;
+    esac
+done
+
+_CASE_VER=""
+_CP4BA_VER=""
+_CP4AUTO_INDEX_FILE="https://raw.githubusercontent.com/IBM/cloud-pak/master/repo/case/ibm-cp-automation/index.yaml"
+
+#---------------------------
+getLatestVersion () {
+  _CASE_VER=$(curl -sk ${_CP4AUTO_INDEX_FILE} | grep latestVersion | sed 's/latestVersion: //g')
+  _CP4BA_VER=$(curl -sk ${_CP4AUTO_INDEX_FILE} | grep latestAppVersion | sed 's/latestAppVersion: //g')
+  _VER="${_CASE_VER}"
+}
+
+#---------------------------
+getSpecificVersion () {
+  _CASE_VER="${_VER}"
+  _CP4BA_VER=$(curl -sk ${_CP4AUTO_INDEX_FILE} | grep "${_VER}:" -A1 | grep appVersion | sed 's/appVersion: //g' | sed 's/^ *//g')
+  if [[ -z "${_CP4BA_VER}" ]]; then
+    _CASE_VER=""
+  fi
+}
+
+#---------------------------
+installCasePackMgr () {
+  if [[ -z "${_CASE_VER}" ]]; then
+    echo "ERROR: CP4BA Case Manager version '${_VER}' doesn't exist !"
+    exit
+  fi
+  echo "Installing case manager version '${_CASE_VER}' for CP4BA version '${_CP4BA_VER}' into foder ${_DIR}"
+  mkdir -p ${_DIR}
+  cd ${_DIR}
+  curl -sk -LO https://github.com/IBM/cloud-pak/raw/master/repo/case/ibm-cp-automation/${_CASE_VER}/ibm-cp-automation-${_CASE_VER}.tgz
+  mkdir -p ./ibm-cp-automation-${_CASE_VER}
+  tar xf ./ibm-cp-automation-${_CASE_VER}.tgz -C ibm-cp-automation-${_CASE_VER}
+  cd ./ibm-cp-automation-${_CASE_VER}/ibm-cp-automation/inventory/cp4aOperatorSdk/files/deploy/crs
+  tar xf ./cert-k8s-*.tar
+  if [[ "${_REMOVE_TGZ}" = "true" ]]; then
+    rm ${_DIR}/ibm-cp-automation-${_CASE_VER}.tgz
+  fi
+  if [[ "${_STAY}" = "false" ]]; then
+    cd ${_DIR}
+  fi
+
+}
+
+#===================================
+
+if [[ "${_SHOW_VERSIONS}" = "true" ]]; then
+  echo "--------------------------------------------------"
+  curl -sk ${_CP4AUTO_INDEX_FILE}
+  echo "--------------------------------------------------"
+  exit 1
+fi
+
+if [[ -z "${_DIR}" ]] ; then
+  echo -e "usage: $_me\n  -d target-directory\n  -v(optional) package-version\n  -n(optional) move-to-scripts-folder\n  -r(optional) remove-tar-file\n  -s(optional) show-available-versions"
+  exit 1
+fi
+
+if [[ -z "${_VER}" ]]; then
+  getLatestVersion
+else
+  getSpecificVersion
+fi
+installCasePackMgr
