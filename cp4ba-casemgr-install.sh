@@ -57,11 +57,15 @@ getSpecificVersion () {
 
 #---------------------------
 installCasePackMgr () {
+  echo -e "${_CLR_YELLOW}=============================================================="
+  echo -e "${_CLR_YELLOW}Installing case manager version '${_CLR_GREEN}${_CASE_VER}${_CLR_YELLOW}' for CP4BA version '${_CLR_GREEN}${_CP4BA_VER}${_CLR_YELLOW}' into foder '${_CLR_GREEN}${_DIR}${_CLR_YELLOW}'${_CLR_NC}"
+  echo -e "==============================================================${_CLR_NC}"
+
+  echo ""
   if [[ -z "${_CASE_VER}" ]]; then
-    echo "ERROR: CP4BA Case Manager version '${_VER}' doesn't exist !"
+    echo -e "${_CLR_RED}[✗] \x1b[5mERROR\x1b[25m: CP4BA Case Manager version '${_CLR_GREEN}${_VER}${_CLR_RED}' doesn't exist !${_CLR_NC}"
     exit
   fi
-  echo "Installing case manager version '${_CASE_VER}' for CP4BA version '${_CP4BA_VER}' into foder ${_DIR}"
   mkdir -p ${_DIR}
   cd ${_DIR}
   curl -sk -LO https://github.com/IBM/cloud-pak/raw/master/repo/case/ibm-cp-automation/${_CASE_VER}/ibm-cp-automation-${_CASE_VER}.tgz
@@ -82,7 +86,9 @@ installCasePackMgr () {
 
 if [[ "${_SHOW_VERSIONS}" = "true" ]]; then
   echo "--------------------------------------------------"
+  echo -e "${_CLR_GREEN}"
   curl -sk ${_CP4AUTO_INDEX_FILE}
+  echo -e "${_CLR_NC}"
   echo "--------------------------------------------------"
   exit 1
 fi
