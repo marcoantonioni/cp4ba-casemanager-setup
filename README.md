@@ -1,5 +1,7 @@
 # Install CP4BA Case Manager package
 
+[updated December 2023]
+
 Usage
 
 ```
