@@ -20,14 +20,18 @@ Usage
 
 ## Latest version
 ```
-mkdir -p /tmp/test
-./cp4ba-casemgr-install.sh -d /tmp/test
+_CMGR_FOLDER="~/tmp-cmgr"
+_CMGR_VER="5.2"
+mkdir -p ${_CMGR_FOLDER}
+./cp4ba-casemgr-install.sh -d ${_CMGR_FOLDER}
 ```
 
 ## Specific version
 ```
-mkdir -p /tmp/test
-./cp4ba-casemgr-install.sh -d /tmp/test -v 5.2
+_CMGR_FOLDER="~/tmp-cmgr"
+_CMGR_VER="5.2"
+mkdir -p ${_CMGR_FOLDER}
+./cp4ba-casemgr-install.sh -d ${_CMGR_FOLDER} -v ${_CMGR_VER}
 ```
 
 
