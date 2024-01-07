@@ -76,8 +76,12 @@ installCasePackMgr () {
   if [[ "${_REMOVE_TGZ}" = "true" ]]; then
     rm ${_DIR}/ibm-cp-automation-${_CASE_VER}.tgz
   fi
+  _SCRIPTS_FOLDER=${_DIR}"/ibm-cp-automation-${_CASE_VER}/ibm-cp-automation/inventory/cp4aOperatorSdk/files/deploy/crs/cert-kubernetes/scripts/"
+  echo "Scripts folder: ${_SCRIPTS_FOLDER}"
   if [[ "${_STAY}" = "false" ]]; then
-    cd ${_DIR}
+    cd ${_SCRIPTS_FOLDER}
+    echo "New bash shell is now in 'scripts' folder, type exit to return to prev. shell"
+    exec bash
   fi
 
 }
@@ -94,7 +98,7 @@ if [[ "${_SHOW_VERSIONS}" = "true" ]]; then
 fi
 
 if [[ -z "${_DIR}" ]] ; then
-  echo -e "usage: $_me\n  -d target-directory\n  -v(optional) package-version\n  -n(optional) move-to-scripts-folder\n  -r(optional) remove-tar-file\n  -s(optional) show-available-versions"
+  echo -e "usage: $_me\n  -d target-directory\n -v(optional) package-version\n  -n(optional) move-to-scripts-folder\n  -r(optional) remove-tar-file\n  -s(optional) show-available-versions"
   exit 1
 fi
 
@@ -104,3 +108,4 @@ else
   getSpecificVersion
 fi
 installCasePackMgr
+exit 0
