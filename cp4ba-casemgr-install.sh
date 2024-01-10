@@ -64,7 +64,7 @@ installCasePackMgr () {
   echo ""
   if [[ -z "${_CASE_VER}" ]]; then
     echo -e "${_CLR_RED}[✗] \x1b[5mERROR\x1b[25m: CP4BA Case Manager version '${_CLR_GREEN}${_VER}${_CLR_RED}' doesn't exist !${_CLR_NC}"
-    exit
+    exit 1
   fi
   mkdir -p ${_DIR}
   cd ${_DIR}
