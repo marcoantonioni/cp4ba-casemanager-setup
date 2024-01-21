@@ -1,6 +1,8 @@
 # Install CP4BA Case Manager package
 
-<i>Last update: 2024-01-10</i> use '<b>1.0.0-stable</b>'
+Utilities for IBM Cloud Pak® for Business Automation
+
+<i>Last update: 2024-01-21</i> use '<b>1.0.0-stable</b>'
 
 Usage
 
