@@ -61,7 +61,7 @@ installCasePackMgr () {
   echo -e "${_CLR_YELLOW}Installing case manager version '${_CLR_GREEN}${_CASE_VER}${_CLR_YELLOW}' for CP4BA version '${_CLR_GREEN}${_CP4BA_VER}${_CLR_YELLOW}' into foder '${_CLR_GREEN}${_DIR}${_CLR_YELLOW}'${_CLR_NC}"
   echo -e "==============================================================${_CLR_NC}"
 
-  echo ""
+  # echo ""
   if [[ -z "${_CASE_VER}" ]]; then
     echo -e "${_CLR_RED}[✗] \x1b[5mERROR\x1b[25m: CP4BA Case Manager version '${_CLR_GREEN}${_VER}${_CLR_RED}' doesn't exist !${_CLR_NC}"
     exit 1
@@ -77,10 +77,10 @@ installCasePackMgr () {
     rm ${_DIR}/ibm-cp-automation-${_CASE_VER}.tgz
   fi
   _SCRIPTS_FOLDER=${_DIR}"/ibm-cp-automation-${_CASE_VER}/ibm-cp-automation/inventory/cp4aOperatorSdk/files/deploy/crs/cert-kubernetes/scripts/"
-  echo "Scripts folder: ${_SCRIPTS_FOLDER}"
+  # echo "Scripts folder: ${_SCRIPTS_FOLDER}"
   if [[ "${_STAY}" = "false" ]]; then
     cd ${_SCRIPTS_FOLDER}
-    echo "New bash shell is now in 'scripts' folder, type exit to return to prev. shell"
+    echo "New bash shell is now in '${_SCRIPTS_FOLDER}' folder, type exit to return to prev. shell"
     exec bash
   fi
 
