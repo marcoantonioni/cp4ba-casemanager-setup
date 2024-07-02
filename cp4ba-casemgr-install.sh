@@ -77,7 +77,7 @@ installCasePackMgr () {
   fi
 
   # if < 24
-  if [[ ${_CASE_VER} = 23.* ]]; then
+  if [[ ${_CASE_VER} = 5.* ]]; then
     cd ./ibm-cp-automation-${_CASE_VER}/ibm-cp-automation/inventory/cp4aOperatorSdk/files/deploy/crs
     tar xf ./cert-k8s-*.tar
     if [[ "${_REMOVE_TGZ}" = "true" ]]; then
