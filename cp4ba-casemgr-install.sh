@@ -71,11 +71,37 @@ installCasePackMgr () {
   curl -sk -LO https://github.com/IBM/cloud-pak/raw/master/repo/case/ibm-cp-automation/${_CASE_VER}/ibm-cp-automation-${_CASE_VER}.tgz
   mkdir -p ./ibm-cp-automation-${_CASE_VER}
   tar xf ./ibm-cp-automation-${_CASE_VER}.tgz -C ibm-cp-automation-${_CASE_VER}
-  cd ./ibm-cp-automation-${_CASE_VER}/ibm-cp-automation/inventory/cp4aOperatorSdk/files/deploy/crs
-  tar xf ./cert-k8s-*.tar
+
   if [[ "${_REMOVE_TGZ}" = "true" ]]; then
     rm ${_DIR}/ibm-cp-automation-${_CASE_VER}.tgz
   fi
+
+  # if < 24
+  if [[ ${_CASE_VER} = 23.* ]]; then
+    cd ./ibm-cp-automation-${_CASE_VER}/ibm-cp-automation/inventory/cp4aOperatorSdk/files/deploy/crs
+    tar xf ./cert-k8s-*.tar
+    if [[ "${_REMOVE_TGZ}" = "true" ]]; then
+      rm ${_DIR}/ibm-cp-automation-${_CASE_VER}.tgz
+    fi
+  else
+    if [[ ${_CASE_VER} = 24.* ]]; then
+      _OLOC=$(pwd)
+      mkdir -p ./ibm-cp-automation-${_CASE_VER}/ibm-cp-automation/inventory/cp4aOperatorSdk/files/deploy/crs
+      cd ./ibm-cp-automation-${_CASE_VER}/ibm-cp-automation/inventory/cp4aOperatorSdk/files/deploy/crs
+      wget https://github.com/icp4a/cert-kubernetes/archive/refs/heads/${_CASE_VER}.zip
+      unzip -o ${_CASE_VER}.zip
+      mv ./cert-kubernetes-${_CASE_VER} ./cert-kubernetes
+      if [[ "${_REMOVE_TGZ}" = "true" ]]; then
+        rm ./${_CASE_VER}.zip
+      fi
+      cd ${_OLOC}
+    else
+      echo -e "${_CLR_RED}[✗] \x1b[5mERROR\x1b[25m: CP4BA Case Manager version '${_CLR_GREEN}${_VER}${_CLR_RED}'  not supported !${_CLR_NC}"
+      exit 1
+      
+    fi
+  fi
+
   _SCRIPTS_FOLDER=${_DIR}"/ibm-cp-automation-${_CASE_VER}/ibm-cp-automation/inventory/cp4aOperatorSdk/files/deploy/crs/cert-kubernetes/scripts/"
   # echo "Scripts folder: ${_SCRIPTS_FOLDER}"
   if [[ "${_STAY}" = "false" ]]; then
