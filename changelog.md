@@ -21,3 +21,4 @@ https://github.com/icp4a/cert-kubernetes/tree
 ### Fixed
 
 ## [1.1.0] - 2024-08-05
+
