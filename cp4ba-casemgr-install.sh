@@ -88,11 +88,11 @@ installCasePackMgr () {
       _OLOC=$(pwd)
       mkdir -p ./ibm-cp-automation-${_CASE_VER}/ibm-cp-automation/inventory/cp4aOperatorSdk/files/deploy/crs
       cd ./ibm-cp-automation-${_CASE_VER}/ibm-cp-automation/inventory/cp4aOperatorSdk/files/deploy/crs
-      wget https://github.com/icp4a/cert-kubernetes/archive/refs/heads/${_CASE_VER}.zip
-      unzip -o ${_CASE_VER}.zip
-      mv ./cert-kubernetes-${_CASE_VER} ./cert-kubernetes
+      wget https://github.com/icp4a/cert-kubernetes/archive/refs/heads/${_CP4BA_VER}.zip
+      unzip -o ${_CP4BA_VER}.zip
+      mv ./cert-kubernetes-${_CP4BA_VER} ./cert-kubernetes
       if [[ "${_REMOVE_TGZ}" = "true" ]]; then
-        rm ./${_CASE_VER}.zip
+        rm ./${_CP4BA_VER}.zip
       fi
       cd ${_OLOC}
     else
