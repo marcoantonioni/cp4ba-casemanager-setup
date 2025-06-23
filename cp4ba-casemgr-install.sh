@@ -84,7 +84,7 @@ installCasePackMgr () {
       rm ${_DIR}/ibm-cp-automation-${_CASE_VER}.tgz
     fi
   else
-    if [[ ${_CASE_VER} = 24.* ]]; then
+    if [[ ${_CASE_VER} = 2*.* ]]; then
       _OLOC=$(pwd)
       mkdir -p ./ibm-cp-automation-${_CASE_VER}/ibm-cp-automation/inventory/cp4aOperatorSdk/files/deploy/crs
       cd ./ibm-cp-automation-${_CASE_VER}/ibm-cp-automation/inventory/cp4aOperatorSdk/files/deploy/crs

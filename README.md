@@ -2,7 +2,7 @@
 
 Utilities for IBM Cloud Pak® for Business Automation
 
-<i>Last update: 2024-08-05</i> use '<b>main</b>' for latest updates (see changelog.md for details)
+<i>Last update: 2025-06-23</i> use '<b>main</b>' for latest updates (see changelog.md for details)
 
 Usage
 
