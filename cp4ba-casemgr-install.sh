@@ -7,6 +7,7 @@ PARENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )"
 
 _DIR=""
 _VER=""
+_K8CERT_VER=""
 _STAY=true
 _REMOVE_TGZ=false
 _SHOW_VERSIONS=false
@@ -24,11 +25,12 @@ _CLR_NC="\033[0m"
 
 #--------------------------------------------------------
 # read command line params
-while getopts d:v:nrs flag
+while getopts d:v:k:nrs flag
 do
     case "${flag}" in
         d) _DIR=${OPTARG};;
         v) _VER=${OPTARG};;
+        k) _K8CERT_VER=${OPTARG};;
         n) _STAY=false;;
         r) _REMOVE_TGZ=true;;
         s) _SHOW_VERSIONS=true;;
@@ -58,7 +60,8 @@ getSpecificVersion () {
 #---------------------------
 installCasePackMgr () {
   echo -e "${_CLR_YELLOW}=============================================================="
-  echo -e "${_CLR_YELLOW}Installing case manager version '${_CLR_GREEN}${_CASE_VER}${_CLR_YELLOW}' for CP4BA version '${_CLR_GREEN}${_CP4BA_VER}${_CLR_YELLOW}' into foder '${_CLR_GREEN}${_DIR}${_CLR_YELLOW}'${_CLR_NC}"
+  # echo -e "${_CLR_YELLOW}Installing case manager version '${_CLR_GREEN}${_CASE_VER}${_CLR_YELLOW}' for CP4BA version '${_CLR_GREEN}${_CP4BA_VER}${_CLR_YELLOW}' into folder '${_CLR_GREEN}${_DIR}${_CLR_YELLOW}'${_CLR_NC}"
+  echo -e "${_CLR_YELLOW}Installing case manager version '${_CLR_GREEN}${_CASE_VER}${_CLR_YELLOW}' into folder '${_CLR_GREEN}${_DIR}${_CLR_YELLOW}'${_CLR_NC}"
   echo -e "==============================================================${_CLR_NC}"
 
   # echo ""
@@ -88,11 +91,13 @@ installCasePackMgr () {
       _OLOC=$(pwd)
       mkdir -p ./ibm-cp-automation-${_CASE_VER}/ibm-cp-automation/inventory/cp4aOperatorSdk/files/deploy/crs
       cd ./ibm-cp-automation-${_CASE_VER}/ibm-cp-automation/inventory/cp4aOperatorSdk/files/deploy/crs
-      wget https://github.com/icp4a/cert-kubernetes/archive/refs/heads/${_CP4BA_VER}.zip
-      unzip -o ${_CP4BA_VER}.zip 1>/dev/null
-      mv ./cert-kubernetes-${_CP4BA_VER} ./cert-kubernetes
+      
+      # old _CP4BA_VER
+      wget https://github.com/icp4a/cert-kubernetes/archive/refs/heads/${_K8CERT_VER}.zip
+      unzip -o ${_K8CERT_VER}.zip 1>/dev/null
+      mv ./cert-kubernetes-${_K8CERT_VER} ./cert-kubernetes
       if [[ "${_REMOVE_TGZ}" = "true" ]]; then
-        rm ./${_CP4BA_VER}.zip
+        rm ./${_K8CERT_VER}.zip
       fi
       cd ${_OLOC}
     else
@@ -126,6 +131,10 @@ fi
 if [[ -z "${_DIR}" ]] ; then
   echo -e "usage: $_me\n  -d target-directory\n -v(optional) package-version\n  -n(optional) move-to-scripts-folder\n  -r(optional) remove-tar-file\n  -s(optional) show-available-versions"
   exit 1
+fi
+
+if [[ -z "${_K8CERT_VER}" ]]; then
+  _K8CERT_VER="${_VER}"
 fi
 
 if [[ -z "${_VER}" ]]; then

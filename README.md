@@ -10,6 +10,7 @@ Usage
 ./cp4ba-casemgr-install.sh
   -d target-directory [must exists]
   -v(optional) package-version [if not set will install latest version]
+  -k(optional) cert-kubernetes specific version [if not set will install latest version]
   -n(optional) move-to-scripts-folder [if set move the shell to folder scripts]
   -r(optional) remove-tar-file [if set deletes the tarball]
   -s(optional) show-available-versions [if set display all the avilable versions and exits]
@@ -27,6 +28,13 @@ mkdir -p ${_CMGR_FOLDER}
 ./cp4ba-casemgr-install.sh -d ${_CMGR_FOLDER}
 ```
 
+## Latest version with specifc cert-kubernetes version
+```
+_CMGR_FOLDER="/tmp/cmgr-$USER"
+mkdir -p ${_CMGR_FOLDER}
+./cp4ba-casemgr-install.sh -d ${_CMGR_FOLDER} -k 25.0.1
+```
+
 ## Specific version
 ```
 _CMGR_FOLDER="/tmp/cmgr-$USER"
@@ -34,4 +42,3 @@ _CMGR_VER="5.1"
 mkdir -p ${_CMGR_FOLDER}
 ./cp4ba-casemgr-install.sh -d ${_CMGR_FOLDER} -v ${_CMGR_VER}
 ```
-
