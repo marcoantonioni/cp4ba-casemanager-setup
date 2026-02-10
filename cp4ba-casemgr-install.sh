@@ -129,7 +129,7 @@ if [[ "${_SHOW_VERSIONS}" = "true" ]]; then
 fi
 
 if [[ -z "${_DIR}" ]] ; then
-  echo -e "usage: $_me\n  -d target-directory\n -v(optional) package-version\n  -n(optional) move-to-scripts-folder\n  -r(optional) remove-tar-file\n  -s(optional) show-available-versions"
+  echo -e "usage: $_me\n  -d target-directory\n  -v(optional) package-version\n  -k(optional) cert-kubernetes-version\n  -n(optional) move-to-scripts-folder\n  -r(optional) remove-tar-file\n  -s(optional) show-available-versions"
   exit 1
 fi
 
