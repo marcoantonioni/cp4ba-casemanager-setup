@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#set -euo pipefail
+
+
 _me=$(basename "$0")
 
 CUR_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
@@ -15,7 +18,7 @@ _SHOW_VERSIONS=false
 #--------------------------------------------------------
 _CLR_RED="\033[0;31m"   #'0;31' is Red's ANSI color code
 _CLR_GREEN="\033[0;32m"   #'0;32' is Green's ANSI color code
-_CLR_YELLOW="\033[1;32m"   #'1;32' is Yellow's ANSI color code
+_CLR_YELLOW="\033[1;33m"   #'1;32' is Yellow's ANSI color code
 _CLR_BLUE="\033[0;34m"   #'0;34' is Blue's ANSI color code
 _CLR_NC="\033[0m"
 
@@ -59,10 +62,10 @@ getSpecificVersion () {
 
 #---------------------------
 installCasePackMgr () {
-  echo -e "${_CLR_YELLOW}=============================================================="
+  #echo -e "${_CLR_YELLOW}=============================================================="
   # echo -e "${_CLR_YELLOW}Installing case manager version '${_CLR_GREEN}${_CASE_VER}${_CLR_YELLOW}' for CP4BA version '${_CLR_GREEN}${_CP4BA_VER}${_CLR_YELLOW}' into folder '${_CLR_GREEN}${_DIR}${_CLR_YELLOW}'${_CLR_NC}"
-  echo -e "${_CLR_YELLOW}Installing case manager version '${_CLR_GREEN}${_CASE_VER}${_CLR_YELLOW}' into folder '${_CLR_GREEN}${_DIR}${_CLR_YELLOW}'${_CLR_NC}"
-  echo -e "==============================================================${_CLR_NC}"
+  echo -e "${_CLR_GREEN}Installing case manager version '${_CLR_YELLOW}${_CASE_VER}${_CLR_GREEN}' into folder '${_CLR_YELLOW}${_DIR}${_CLR_NC}${_CLR_GREEN}'${_CLR_NC}"
+  #echo -e "==============================================================${_CLR_NC}"
 
   # echo ""
   if [[ -z "${_CASE_VER}" ]]; then
