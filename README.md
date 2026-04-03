@@ -41,4 +41,9 @@ _CMGR_FOLDER="/tmp/cmgr-$USER"
 _CMGR_VER="5.1"
 mkdir -p ${_CMGR_FOLDER}
 ./cp4ba-casemgr-install.sh -d ${_CMGR_FOLDER} -v ${_CMGR_VER}
+
+
+_CMGR_VER="24.0.1"
+_K_VER="24.0.1-IF007"
+./cp4ba-casemgr-install.sh -d ${_CMGR_FOLDER} -v ${_CMGR_VER} -k ${_K_VER}
 ```
