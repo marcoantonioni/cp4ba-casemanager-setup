@@ -28,31 +28,36 @@ mkdir -p ${_CMGR_FOLDER}
 ./cp4ba-casemgr-install.sh -d ${_CMGR_FOLDER}
 ```
 
-## Latest version with specifc cert-kubernetes version
+### WARNING for version 25.1.0
+
+Bug in https://github.com/IBM/cloud-pak/blob/master/repo/case/ibm-cp-automation/index.yaml
+
+incorrect mapping for tag '25.1.0' mapping a 'appVersion: 25.1.0' unexistent 25.1.0.zip file.
+
+See https://github.com/icp4a/cert-kubernetes/archive/refs/heads/25.0.1.zip
+
+For v 25.1.0 use 'specific method'
+
 ```
 _CMGR_FOLDER="/tmp/cmgr-$USER"
-mkdir -p ${_CMGR_FOLDER}
-./cp4ba-casemgr-install.sh -d ${_CMGR_FOLDER} -k 25.0.1
+_CMGR_VER="25.1.0"
+_K_VER="25.0.1"
+./cp4ba-casemgr-install.sh -d ${_CMGR_FOLDER} -v ${_CMGR_VER} -k ${_K_VER}
 ```
+
+
 
 ## Specific version
 ```
-_CMGR_FOLDER="/tmp/cmgr-$USER"
-_CMGR_VER="5.1"
-mkdir -p ${_CMGR_FOLDER}
-./cp4ba-casemgr-install.sh -d ${_CMGR_FOLDER} -v ${_CMGR_VER}
-
-
-### version 24.1.7 and fix 24.0.1-IF007
+### example: version 24.1.7 and fix 24.0.1-IF007
 _CMGR_FOLDER="/tmp/cmgr-$USER"
 _CMGR_VER="24.1.7"
 _K_VER="24.0.1-IF007"
 ./cp4ba-casemgr-install.sh -d ${_CMGR_FOLDER} -v ${_CMGR_VER} -k ${_K_VER}
 
-### version 25.0.4 and fix package automatically discovered
+### example: version 25.0.4 and fix package automatically discovered [PREFERRED]
 _CMGR_FOLDER="/tmp/cmgr-$USER"
 _CMGR_VER="25.0.4"
 ./cp4ba-casemgr-install.sh -d ${_CMGR_FOLDER} -v ${_CMGR_VER}
-
 
 ```

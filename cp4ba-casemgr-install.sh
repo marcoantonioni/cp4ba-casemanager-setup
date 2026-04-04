@@ -49,6 +49,7 @@ getLatestVersion () {
   _CASE_VER=$(curl -sk ${_CP4AUTO_INDEX_FILE} | grep latestVersion | sed 's/latestVersion: //g')
   _CP4BA_VER=$(curl -sk ${_CP4AUTO_INDEX_FILE} | grep latestAppVersion | sed 's/latestAppVersion: //g')
   _VER="${_CASE_VER}"
+  _K8CERT_VER=$_CP4BA_VER
 }
 
 #---------------------------
@@ -57,10 +58,11 @@ getSpecificVersion () {
   _CP4BA_VER=$(curl -sk ${_CP4AUTO_INDEX_FILE} | grep "${_VER}:" -A1 | grep appVersion | sed 's/appVersion: //g' | sed 's/^ *//g')
   if [[ -z "${_CP4BA_VER}" ]]; then
     _CASE_VER=""
-  else
-    if [[ ! -z "${_CP4BA_VER}" ]]; then
-      _K8CERT_VER="${_CP4BA_VER}"
-    fi
+    echo "ERROR for 'appVersion' found empty value"
+    exit 1
+  fi
+  if [[ -z "${_K8CERT_VER}" ]]; then
+    _K8CERT_VER="${_CP4BA_VER}"
   fi
 }
 
