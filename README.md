@@ -28,6 +28,27 @@ mkdir -p ${_CMGR_FOLDER}
 ./cp4ba-casemgr-install.sh -d ${_CMGR_FOLDER}
 ```
 
+## Specific version
+```
+
+### example: version 23.0.2-IF006 old mapping value is 5.1.6, 
+_CMGR_FOLDER="/tmp/cmgr-$USER"
+_CMGR_VER="5.1.6"
+./cp4ba-casemgr-install.sh -d ${_CMGR_FOLDER} -v ${_CMGR_VER}
+
+
+### example: version 24.1.7 and fix 24.0.1-IF007
+_CMGR_FOLDER="/tmp/cmgr-$USER"
+_CMGR_VER="24.1.7"
+_K_VER="24.0.1-IF007"
+./cp4ba-casemgr-install.sh -d ${_CMGR_FOLDER} -v ${_CMGR_VER} -k ${_K_VER}
+
+### example: version 25.0.4 and fix package automatically discovered [PREFERRED]
+_CMGR_FOLDER="/tmp/cmgr-$USER"
+_CMGR_VER="25.0.4"
+./cp4ba-casemgr-install.sh -d ${_CMGR_FOLDER} -v ${_CMGR_VER}
+
+```
 ### WARNING for version 25.1.0
 
 Bug in https://github.com/IBM/cloud-pak/blob/master/repo/case/ibm-cp-automation/index.yaml
@@ -43,21 +64,4 @@ _CMGR_FOLDER="/tmp/cmgr-$USER"
 _CMGR_VER="25.1.0"
 _K_VER="25.0.1"
 ./cp4ba-casemgr-install.sh -d ${_CMGR_FOLDER} -v ${_CMGR_VER} -k ${_K_VER}
-```
-
-
-
-## Specific version
-```
-### example: version 24.1.7 and fix 24.0.1-IF007
-_CMGR_FOLDER="/tmp/cmgr-$USER"
-_CMGR_VER="24.1.7"
-_K_VER="24.0.1-IF007"
-./cp4ba-casemgr-install.sh -d ${_CMGR_FOLDER} -v ${_CMGR_VER} -k ${_K_VER}
-
-### example: version 25.0.4 and fix package automatically discovered [PREFERRED]
-_CMGR_FOLDER="/tmp/cmgr-$USER"
-_CMGR_VER="25.0.4"
-./cp4ba-casemgr-install.sh -d ${_CMGR_FOLDER} -v ${_CMGR_VER}
-
 ```
