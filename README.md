@@ -43,7 +43,16 @@ mkdir -p ${_CMGR_FOLDER}
 ./cp4ba-casemgr-install.sh -d ${_CMGR_FOLDER} -v ${_CMGR_VER}
 
 
-_CMGR_VER="24.0.1"
+### version 24.1.7 and fix 24.0.1-IF007
+_CMGR_FOLDER="/tmp/cmgr-$USER"
+_CMGR_VER="24.1.7"
 _K_VER="24.0.1-IF007"
 ./cp4ba-casemgr-install.sh -d ${_CMGR_FOLDER} -v ${_CMGR_VER} -k ${_K_VER}
+
+### version 25.0.4 and fix package automatically discovered
+_CMGR_FOLDER="/tmp/cmgr-$USER"
+_CMGR_VER="25.0.4"
+./cp4ba-casemgr-install.sh -d ${_CMGR_FOLDER} -v ${_CMGR_VER}
+
+
 ```

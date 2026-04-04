@@ -1,0 +1,2716 @@
+resources:
+  metadata:
+    name: cp4aOperatorSdk
+  resourceDefs:
+    cases:
+    - case: ibm-cs-install
+      mediaType: application/vnd.case.core.v1
+      metadata:
+        description: CloudPak for Foundational Services
+        name: ibmCommonServices
+      repositoryURLs:
+      - https://raw.githubusercontent.com/IBM/cloud-pak/master/repo/case
+      version: ">=4.15.0"
+    - case: ibm-process-mining
+      mediaType: application/vnd.case.core.v1
+      metadata:
+        description: IBM Process Mining
+        name: ibmProcessMining
+      repositoryURLs:
+      - https://raw.githubusercontent.com/IBM/cloud-pak/master/repo/case
+      version: ">=2.0.1"
+    - case: ibm-robotic-process-automation
+      mediaType: application/vnd.case.core.v1
+      metadata:
+        description: IBM Robotic Process Automation
+        name: ibmRoboticProcessAutomation
+      repositoryURLs:
+      - https://raw.githubusercontent.com/IBM/cloud-pak/master/repo/case
+      version: ">=1.7.1"
+    - case: ibm-bts-bundle
+      mediaType: application/vnd.case.core.v1
+      metadata:
+        description: IBM BTS Operator
+        name: ibmBtsBundle
+      repositoryURLs:
+      - https://raw.githubusercontent.com/IBM/cloud-pak/master/repo/case
+      version: ">=1.0.32"
+    - case: ibm-opensearch-operator
+      mediaType: application/vnd.case.core.v1
+      metadata:
+        description: IBM Opensearch Operator
+        name: ibmOpensearchCase
+      repositoryURLs:
+      - https://raw.githubusercontent.com/IBM/cloud-pak/master/repo/case
+      version: ">=1.1.4005"
+    - case: ibm-cs-flink
+      mediaType: application/vnd.case.core.v1
+      metadata:
+        description: IBM Foundation Flink
+        name: ibmFlinkCase
+      repositoryURLs:
+      - https://raw.githubusercontent.com/IBM/cloud-pak/master/repo/case
+      version: ">=2.0.5"
+    containerImages:
+    - image: cp/cp4a/odm/dbserver
+      metadata:
+        description: ODM DBServer image
+        name: odmDBServer
+      tag: "25.0.1"
+      digest: sha256:92ad12dad199ec51ce41f2bb946d84ae5952405cb226df4ef7c3c869e2bcc27e
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:9106481ba539808ea9fed4b7d3197e91732748bc2170e862b729af8cc874f5db
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:b4d27ea2cb1ea19f7c5d8e6b2f93846a2eb6bf584741f7e6b0fe67c63c82f889
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:90f71a6f6b0d0d66b89330c37922b6f6c8bf1f367a710b13f40c4f49f922b8d8
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baODMImages: {}
+    - image: cp/cp4a/odm/odm-decisioncenter
+      metadata:
+        description: ODM Decisioncenter image
+        name: odmDecisionCenter
+      tag: "25.0.1"
+      digest: sha256:ad1e82ea9fc50c6138f042c49a65abb70daad32180c6348da39508e339df3bc4
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:6a0eb1f874ba52918bcd8e2c3acde2d3e428685cad7e5996e0c1227e88d3de0b
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:d75ed119d5697f300cee58e8658ff4114a3fc7354835f561989ea53a67a8bc4f
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:12950a2ba877492764c2cdaa3a4de02b486d7581ee734d6eff331b511b14892f
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baODMImages: {}
+    - image: cp/cp4a/odm/odm-decisionrunner
+      metadata:
+        description: ODM Decisionrunner image
+        name: odmDecisionRunner
+      tag: "25.0.1"
+      digest: sha256:056f97137002814ff1e46c6d3a14b1e5c0120b16a29441ed52b7fd4475a90f53
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:6f0643013e18d848199a73f38c5f6f854c1226ae7702c8294b835b74aa561782
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:c6d940efaa98b900f21c35cbf4942ecd6681ea6499c91ba2ccea4914ccd004d4
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:72d360c418354fcf8ea3f3844cc1291583f44cb4c44436f723d92f9dc84678f0
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baODMImages: {}
+    - image: cp/cp4a/odm/odm-decisionserverconsole
+      metadata:
+        description: ODM DecisionServer Console image
+        name: odmDecisionServerConsole
+      tag: "25.0.1"
+      digest: sha256:51a4c22cf7f9bcbc509287a378a08431130ab81791a78b95224bc3d271f6becf
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:f4c778a388535330ce5d5612d6325d5522cedb70f0cb7895fa7f015a38e5bb9c
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:e52153b8998463e8eaa4c131d09541d234bcdc895fe6ddeded8aa7268adb2705
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:2600f734174ce8d7bb3cab632f60938c223eddf160c619a7af39862e37040094
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baODMImages: {}
+    - image: cp/cp4a/odm/odm-decisionserverruntime
+      metadata:
+        description: ODM DecisionServer Runtime image
+        name: odmDecisionServerRuntime
+      tag: "25.0.1"
+      digest: sha256:55f5c78130a4fc0519864c3550a294bcb1d7ce54a163f74e2ca36a16115da10b
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:ab03e4e35923c674a090456f6869963a6d29e8f94117061ff11d383cc8c9369a
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:58cff2017e370ad02149d9de57e6d11cc4cb6d1ef21823c98ca4b7cc3e479510
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:e57c6121b61dfc4d7fe9cc6b42cbb38ce4f99eaba9d67804c6c3c6127bb263e0
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baODMImages: {}
+    - image: cp/cp4a/odm/dba-keytool-initcontainer
+      metadata:
+        description: ODM DBAKeytool InitContainer Image
+        name: odmDBAKeytoolInitContainer
+      tag: "25.0.1"
+      digest: sha256:ea5065f3f8e29f9ae43badfea932166a344748b725cd297f88ddd8d43c9129ec
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:7be757ab83b9dbbf2a8c64cff0c73d5fa9e1cb1169d009a7d30c8a442c529274
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:b6889553101ed7c9301d02c02c9c3212e5e6a7afb9ea0fc34c57ecde3043f20e
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:73ff950e6a9198294cdbec7d188e103d1c68c6e9cf2cf3b9b6d69c1b1c00b1a6
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baODMImages: {}
+    - image: cp/cp4a/bai/bai-init
+      metadata:
+        description: BAI Initialization Image
+        name: baiInit
+      tag: "25.0.1"
+      digest: sha256:6a4a8bba490a81909624b693b50ece4b2e60578bc3a83648d42cffb449a59ca3
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:8a261b513906cda167886e9d8345b797424bca55558f856fcab01d74b8ec8088
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:790805a0353b64f4bef25813abd256db967850ef5ede18258d4ae8916ba7f0f2
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:db4d40f4066473942f0b6b07cec0d48582a5752717d5a475a0ca613aaca9bfab
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baBAIImages: {}
+    - image: cp/cp4a/bai/bai-flink
+      metadata:
+        description: BAI Flink Image
+        name: baiFlink
+      tag: "25.0.1"
+      digest: sha256:396236362352d1d7a6296ff9508418a8226e3316535ac9ce60dcff4f10830da8
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:f115eae92f9f5060c29fddcae5098b9a8d59c060ef742a457dea5f54bb9762cc
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:c1f5c9b70ad7dcbe8e255ccb831387c17f41a68cccab4eff77373a22348b52ea
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:579bd92cc895aee441d38d7e32296839f649c48bda6cfb48c46e0b99386c5285
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baBAIImages: {}
+    - image: cp/cp4a/bai/bai-setup
+      metadata:
+        description: BAI Setup image
+        name: baiSetup
+      tag: "25.0.1"
+      digest: sha256:22377f61ca8c39b04ebe87495ab00abdb01ab1128d79d13956c6e3712023d0d6
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:0ce9f8726d0cffa4204c56535b92af265ffde4e96d39f4200da1a3f5f98f54ea
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:81d525d9b21b18f42f78b04f2e02cd5e5b2872864bef18696ea9b4f87ba600a3
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:324eddc573d2a8323bb64816eef86b366f7e3234f97e2da00ab60997ffe3bd72
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baBAIImages: {}
+    - image: cp/cp4a/bai/bai-bpmn
+      metadata:
+        description: BAI for BPMN image
+        name: baiBpmn
+      tag: "25.0.1"
+      digest: sha256:b04277f5bba1a230ed7f28b331721bab32e49410edcefdcf17afdbf13219ab66
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:3752ddf25ed13e757450f6ddb50a4d8e6b6efa62937c02dab35ba0f60cdb4e1a
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:2e575803cb830e3609171f0ec382b60316942653d1f32cd4367bd1e45e60985d
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:7831f2a47a0d51f5a0a654db2265aa736c2377c1a9d4ef004f8b7e17a684e39a
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baBAIImages: {}
+    - image: cp/cp4a/bai/bai-icm
+      metadata:
+        description: BAI for ICM image
+        name: baiIcm
+      tag: "25.0.1"
+      digest: sha256:4fc1ab9f03edd58da868a79603b81f941efa20232293d4228b899e2d2f000a32
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:01b9546530ad3e34aaefebaa8607906baa41c4d03af2e48f7663a13853aba298
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:562ae5b1ea681014e5360a1418e9e590acbb274fcf19064018bc32f5206556fe
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:2fa09b4f7f91c470e83a46740e3b1ace6d6b8cbdd88187d9f7b30a7c189ca9c6
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baBAIImages: {}
+    - image: cp/cp4a/bai/bai-bawadv
+      metadata:
+        description: BAI for BAW Advanced image
+        name: baiBawadv
+      tag: "25.0.1"
+      digest: sha256:a64f78392b1df0dab54e967e144c334fe564eb80f340a55b43c9f71c6cb2b3c9
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:fb4a8142ff3c05dc792d5dd62f812fa8d40c65615d4a2ca9917f4a6d8797e208
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:8924390ed3c57e2cfe74b6e23d9ea1f26ab44e9c5a91f9f49829e21dc9a73db7
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:6508ad580d103ecfb2a91d9f65bc547fdcfc28c33f50232d59066fc25f3950a4
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baBAIImages: {}
+    - image: cp/cp4a/bai/dba-keytool-initcontainer
+      metadata:
+        description: BAI DBA Keytoool Init Container Image
+        name: baiDbaInitKeytoolInitContainer
+      tag: "25.0.1"
+      digest: sha256:ea5065f3f8e29f9ae43badfea932166a344748b725cd297f88ddd8d43c9129ec
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:7be757ab83b9dbbf2a8c64cff0c73d5fa9e1cb1169d009a7d30c8a442c529274
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:b6889553101ed7c9301d02c02c9c3212e5e6a7afb9ea0fc34c57ecde3043f20e
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:73ff950e6a9198294cdbec7d188e103d1c68c6e9cf2cf3b9b6d69c1b1c00b1a6
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baBAIImages: {}
+    - image: cp/cp4a/bai/dba-umsregistration-initjob
+      metadata:
+        description: BAI DBA UMS Registration InitJob Image
+        name: baiDBAUMSRegistrationInitJob
+      tag: "25.0.1"
+      digest: sha256:6ab881b446d29a0e5363cb7a43266dc9ee1dcf729697bc1e9d9e79673cd7ff1f
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:5e5ade4f614d65d49ac1fc812f4014077d094e774296278aa3d2d8d2b78cf677
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:7af29aaf09adec3fa4a1ebce91924857d7717d7bf75191db23aa7080e7912137
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:6bab4f0f6e3c6e6dd631490c22108223bdff33dbf889023fddc71be071f3a216
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baBAIImages: {}
+    - image: cp/cp4a/bai/insights-engine-management
+      metadata:
+        description: BAI Core Insights Engine Management
+        name: baiCoreInsightsEngineManagement
+      tag: "25.0.1"
+      digest: sha256:fdc9eebaf4f7f2f6fd9d374b2cc54a8ae06891a44c42a62030c4695454a9b448
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:3063c31ec8ef272f6e5d6a04d26f06cf5f0928eded9372ae707c9ec68ce8a357
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:732a6790da91fdd54718cc76854c4d6c9edac5c9f892ef6733c92186cfc2011e
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:05eda19eabf65539b0a666a1a1a4d3d42eea80a6cb5aab7f65dd03ba0bdf3c56
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baBAIImages: {}
+    - image: cp/cp4a/bai/insights-engine-management-backend
+      metadata:
+        description: BAI Core Insights Engine Management Backend
+        name: baiCoreInsightsEngineManagementBackend
+      tag: "25.0.1"
+      digest: sha256:9e4a1176fca0725a8178c17d6aa033ff1fb87cf04ac08a9494bbe2a2c0304d9b
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:1ec72d45df46d0768bb33cf6fa9edff3326449940ff8e43e2216dca1c175db9e
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:facde156caac0b8084b3923ecd6e02066dafb9751d381d34b6e9d85c47c499db
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:44c4a11b1c68ce238ed495139ed28bcd0a3b4ef6192f290db80d610d62074412
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baBAIImages: {}
+    - image: cp/cp4a/bai/insights-engine-cockpit
+      metadata:
+        description: BAI Core Insights Engine Cockpit
+        name: baiCoreInsightsEngineCockpit
+      tag: "25.0.1"
+      digest: sha256:d0a52919836b37e58e2f8ea03b4c4075255110060a5fbbf99bb4baa5e7f564f0
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:4e761e5b1e47ffffd4616de2f11cf848a169c531138eb20f15eaab464f1bee51
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:5c00a343f4da4c0d74f0630d5163d674dbd019f92302b18e1ad4c4261a18ce75
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:364965a6cc255697b59095f194ff3985349959409cc335fa3dbbfc070d736afb
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baBAIImages: {}
+    - image: cp/cp4a/bai/insights-engine-application-setup
+      metadata:
+        description: BAI Core Insights Engine Application Setup
+        name: baiCoreInsightsEngineApplicationSetup
+      tag: "25.0.1"
+      digest: sha256:fdd03894c60b15193cf44417dc62db17f6aa6e8c2f599fb5c63321a0f38fde52
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:762ecee07f7880d4ab459c4a6f755b784db7ac79024349d96b9017522358e74d
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:1f35012fc6105c8315b4b426e15c9436831f97d9366dbfe69d89fcdd83e8ecc7
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:8c9826c8956ac840349ea7fe7a884ab2dced42b67d90aa1bcb0c8cd8728efeaa
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baBAIImages: {}
+    - image: cp/cp4a/fncm/cpe
+      metadata:
+        description: Content Process Engine Image
+        name: fncmContentProcessEngine
+      tag: "25.0.1"
+      digest: sha256:4424c55e89ee78013349dddb72a67edb8715a2692568e7d549ee15bd49007fe2
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:60d146eb8c2dbb72ab0f70551fdb20ec07354b41cef6da448325fc1de7df8cc4
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:27076d36cd6ddec7dcecde4db6b86994ca5ae64e937776d551c2db1eaba7d723
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:348cd6eb65495745de2096f4a124a0370095805548f9274fb58f69c55def8cc5
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baFNCMImages: {}
+    - image: cp/cp4a/fncm/cpe-audit-log
+      metadata:
+        description: Content Process Engine Audit Log Image
+        name: fncmContentProcessEngineAuditLog
+      tag: "25.0.1"
+      digest: sha256:136fd0a41e81683245036ddc0af1e0914be953ea96b778fcddfb08999e644954
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:5d2c96a10c9e4dfc738d2344f61bc33061fa5c1a51dbe172e5bb8e5a6c7fb083
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:99fb0d7e9786fab64ee4c8b54e6e5528e3ddd77242aac785986c7156449cadbd
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:d8ed5c6f1c5ab8a814c2c7b1b802ebdd8159a47de1f65b124637de1eab07ccc9
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baFNCMImages: {}
+    - image: cp/cp4a/fncm/cpe-sso
+      metadata:
+        description: Content Process Engine SSO Image
+        name: fncmContentProcessEngineSSO
+      tag: "25.0.1"
+      digest: sha256:f3f99d494433f7a3812a3fb7d0ba853d43382c1ef6ac2a52cb89a12814d2b7df
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:1c9a1e53bec62ca4d7d2ad497df6b713c75a329b93244ebd1ee8ea18b5bacd9f
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:04e48b0195663b31a03eff16f56a9e23028ed95728454ea75fc3ac2863d04217
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:72779de43b8a617505a399bf73ef4e5d4bf69f77ebb906ebf2c06397400353dd
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baFNCMImages: {}
+    - image: cp/cp4a/fncm/css
+      metadata:
+        description: Content Search Services Image
+        name: fncmContentSearchServices
+      tag: "25.0.1"
+      digest: sha256:9862e9131f25c5b846822e76624d7d787434fd7eca9531c66b5d90ba9b145002
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:574f2f8aa9c2366ba4782326b3f247bb28cb61e208625a6f035870f4dc502c97
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:665a2a0cf399539dc10f2f8d2ce497e847dcf58a11919f1c27042133c8fa471b
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:92ebd33f01f532d84eebe5e750c426018f7552adc6135ee3940acaeb480fc682
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baFNCMImages: {}
+    - image: cp/cp4a/fncm/cmis
+      metadata:
+        description: Content Management Interoperability Services Image
+        name: fncmContentManagementInteroperabilityServices
+      tag: "25.0.1"
+      digest: sha256:b981fddfaf004194345452e926ed9d3c23aad9f356eed15bce4419b641ebde07
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:3d2080ea372dca224408c3594b6b561bcb40e337d063abeb354f9aac908016f5
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:d2c19fbee9233f26405f205d58dfe47cbea3dd1bae84973bbbfe0ccc15abb217
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:caccb021aeb20196d7eb6f717ab97e3fa50f4b4b3c6c44e216ae9abb1a8aacd9
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baFNCMImages: {}
+    - image: cp/cp4a/fncm/extshare
+      metadata:
+        description: FileNet Content Engine External Share Image
+        name: fncmExternalShare
+      tag: "25.0.1"
+      digest: sha256:4ed809007920ba47e973196d674340efb971f564335ec7a0e232e51fd41dfdd3
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:485d7883c22a838813f32289db504c579673dde1a98723f3c0897bfc3982dc60
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:a61db679098af79f0479965dd595045493d2aa6758971ef2ec0c2d8a80cb9957
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:4bb934ee13f76d3f55cbbb0fbd2b0d40ed2800793dafaed63de1569d0e372c97
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baFNCMImages: {}
+    - image: cp/cp4a/fncm/graphql
+      metadata:
+        description: FileNet Content Engine GraphQL API Image
+        name: fncmGraphQLApi
+      tag: "25.0.1"
+      digest: sha256:902926c9b8e896b5bf1f85801bae3dd4ddb8d41231b2ccd62f5622703967195a
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:39a4b21c95fbb703a30aaef0732ecf545df49fea1c35ce722fa2bcf68b83ec87
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:00e31ec6ed2664ef911979d0db3b1f6621124cb625022dc6f2bb2ecd5fa49058
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:059103cf35fe2a6cf6485b59d67cba7eb1943bd24e3e11a40c741b9a4e49afea
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baFNCMImages: {}
+    - image: cp/cp4a/fncm/taskmgr
+      metadata:
+        description: Content Navigator Task Manager Image
+        name: fncmTaskManager
+      tag: "25.0.1"
+      digest: sha256:90b2ed79191c729d6ddfcf506d288adaee35f1b8c9919e538d80bac84fd6fe43
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:6c5bd1ce075f08fcaa45f8a886ab64d045981a87ab3205b90eb33410ebc86501
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:bde26958c9b15067a3da0d6151e1b5bf06df594cef10393b91fe9bd9e7c0921b
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:1274ca81a5a275a738397f9c6efb36f893a259e456aaa4d8db0aaa8b7a53cb2f
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baFNCMImages: {}
+    - image: cp/cp4a/fncm/lscollector
+      metadata:
+        description: License Metric Collector
+        name: fncmLicenseMetricCollector
+      tag: "25.0.1"
+      digest: sha256:d216d5667f7ebd2df83512c6bc163f4816a7afeaee90196b978002d756ddfcf3
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:647e653e7d041c9290a744c2fa4f3f3a8ea3d7f32036c28cee75ff9491261643
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:b6ac0220948a081b0688ecd3de7f7ebfafb0d7d6d33786df3c11118df1ab42f7
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:a6d4f9243dc6ef79273db1220110bc01bd906f66e756fe93c33b629cac012f3f
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baFNCMImages: {}
+    - image: cp/cp4a/fncm/lsreporter
+      metadata:
+        description: License Metric Reporter
+        name: fncmLicenseMetricReporter
+      tag: "25.0.1"
+      digest: sha256:36892eac0243601f31935509d7a5362738225744608a4e25186ed191b59739ad
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:af9557e96610a960736cb9a858b6124c9e4dc8a4441b57e068ac92b3d2db38c2
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:4f94ea681c444ac0db1c71099c0cfeeb03f316fe79e7992c395a57a343fc2b55
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:0790b0e43f02fde35715e7b26ca292d68c6425064daf12b043a4a6ea4d8126ff
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baFNCMImages: {}
+    - image: cp/cp4a/ban/navigator
+      metadata:
+        description: Business Automation Navigator Image
+        name: fncmBusinessAutomationNavigator
+      tag: "25.0.1"
+      digest: sha256:734cd297915d39823418ea0b90cbc95a04c605a2ef718c583767f8f25913f386
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:c80004555d3384c259adebd453de3e301de6b329960e8d65b4b9be5c32956570
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:325df676466b6d8a1803cd7e56b6a5417d785ac1aacfdd4e1c5ccc03143e9205
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:e9c0c495764a26361dc65ccdf7a7357b5eb7425a302fbd0768c2196d002ee25c
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baBANImages: {}
+    - image: cp/cp4a/ban/navigator-sso
+      metadata:
+        description: Business Automation Navigator SSO Image
+        name: fncmBusinessAutomationNavigatorSSO
+      tag: "25.0.1"
+      digest: sha256:35c281ab65ed9989364efad949569397a4e8563d32a008b81d32087cdedcd971
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:960c43e47cb781c2d076604c21c21002d14c538b6ac9c26773e149e3e3c2bbf6
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:a8fbd3b1934dfd49c1d7160978075d220589037be9913f53638ed2838959cc48
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:3f170a586beb1082aea251c8d23e2a7d189f7171e32f3338340e5bc32aa1098c
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baBANImages: {}
+    - image: cp/cp4a/common/dba-keytool-initcontainer
+      metadata:
+        description: Common DBA Keytool Init Container Image
+        name: commonDBAKeytoolInitContainer
+      tag: "25.0.1"
+      digest: sha256:ea5065f3f8e29f9ae43badfea932166a344748b725cd297f88ddd8d43c9129ec
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:7be757ab83b9dbbf2a8c64cff0c73d5fa9e1cb1169d009a7d30c8a442c529274
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:b6889553101ed7c9301d02c02c9c3212e5e6a7afb9ea0fc34c57ecde3043f20e
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:73ff950e6a9198294cdbec7d188e103d1c68c6e9cf2cf3b9b6d69c1b1c00b1a6
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baBANImages: {}
+        ibmcp4baFNCMImages: {}
+    - image: cp/cp4a/bas/bastudio
+      metadata:
+        description: Business Automation Studio Image
+        name: basStudio
+      tag: "25.0.1"
+      digest: sha256:5ec639347bf62ac1d5a18eb473e190f2d948e98770ed41c454ab5f801a51f702
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:d8f8442930c744f3fb9f0ac80e0f157941588f7f728c059a8156b0dd245e5aee
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:e2c2a6c233b8573045422100f579eb86d3b36ea1312fe05166619355aca88487
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:458e8577ba68b29bda8b0640f8ce736e2263b486f92fd42d126f852844f1ae72
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baBASImages: {}
+    - image: cp/cp4a/bas/solution-server
+      metadata:
+        description: Application Engine Solution Server Image
+        name: basSolutionServer
+      tag: "25.0.1"
+      digest: sha256:c1ec4ef9acaf0a8c5e85f539563b6b5f0e9950ea5452cdbb9fba2da149d37a6c
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:382fdcafcf4e0a8318d4c5ff827361f05c9b3ae0aa3f6e21dc5bec13fec9e67f
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:fa239caaf6de6e8570fe2751e192fa9245d95085712078c3ed56266afafb7d4b
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:3a31811304d73a8708d3fdbee0e599b5bdb2fe677be45cdb742c4500f46da674
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baBASImages: {}
+    - image: cp/cp4a/bas/dba-etcd
+      metadata:
+        description: Business Automation Studio DBA ETCD Image
+        name: basDbaEtcd
+      tag: "25.0.1"
+      digest: sha256:7861aab178ee179f895c4ca252e26ec8cd70aaa410207a4fabcb36e7e9da9c50
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:682845357cc3070024db3c095d7341cb1cf232e5eed1849655798bec811a576a
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:163f4ec36a823a16a2800f58e5faa8ac503cdd6875001e4c8fdd449277b61852
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:9ae8e3a0f74c228eca5aff98af929f5638b0e5f53c0e8eb7e321d02e2f370915
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baBASImages: {}
+    - image: cp/cp4a/bas/solution-server-helmjob-db
+      metadata:
+        description: Application Engine Solution Server Helmjob DB Image
+        name: basSolutionServerHelmjobDb
+      tag: "25.0.1"
+      digest: sha256:6c5e8832788f9238b3e87fc5ba42f8d1d2bd3be480403b9e1ef43b305915dff7
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:cb4a79a8fa973a7cb5eced4b6572aefdf39fe412d32ab883aab7cabe9598e985
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:18900bb07a750abf474c58d0a8d5b9027efdcbcea669b330aca48e8026893550
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:81f023b2dae0988bf21e1dfb572272e01e42249e86c360740014352d7e8ccc92
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baBASImages: {}
+    - image: cp/cp4a/bas/workflow-authoring
+      metadata:
+        description: Business Automation Studio Image Workflow Authoring Image
+        name: basWorkflowAuthoring
+      tag: "25.0.1"
+      digest: sha256:35da8e38a4834bf664a32e0c65c57aaa868055db713615688f76d29b0d53e643
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:444012449715ca917099e5933c569f106ae76633a7280ecea2a6f6d8dd1e0057
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:c65d0be0271470a14e17f168b6332707a4a82f5279e41441bf475390cd9e4aea
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:1f95e8d356141bd71d9461c052f6749107a793b3121b01feabfc50594244c185
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baBASImages: {}
+    - image: cp/cp4a/bas/dba-keytool-initcontainer
+      metadata:
+        description: Business Automation Studio DBA Keytool Init Container Image
+        name: basDBAKeytoolInitContainer
+      tag: "25.0.1"
+      digest: sha256:ea5065f3f8e29f9ae43badfea932166a344748b725cd297f88ddd8d43c9129ec
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:7be757ab83b9dbbf2a8c64cff0c73d5fa9e1cb1169d009a7d30c8a442c529274
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:b6889553101ed7c9301d02c02c9c3212e5e6a7afb9ea0fc34c57ecde3043f20e
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:73ff950e6a9198294cdbec7d188e103d1c68c6e9cf2cf3b9b6d69c1b1c00b1a6
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baBASImages: {}
+    - image: cp/cp4a/bas/dba-keytool-jobcontainer
+      metadata:
+        description: Business Automation Studio DBA Keytool Job Container Image
+        name: basDBAKeytoolJobContainer
+      tag: "25.0.1"
+      digest: sha256:4793c8d1d61cdfc6f6bc3192d405f74bff4e1016ec29364de5a36ca4382e6aeb
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:ed7d755291a47e65fe11bf36c1f2ace72e91e4a701402f2448be244627760987
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:232d5d2caeb0385329bcfb176bd4f77524f957c8d638909203325063cd06d9f5
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:8d039411a2233f75f4ec8da9f2df5a20c65498e7cf9723bc6af333d3e8174ad1
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baBASImages: {}
+    - image: cp/cp4a/bas/dba-umsregistration-initjob
+      metadata:
+        description: Business Automation Studio DBA UMS Registration InitJob Image
+        name: basDBAUMSRegistrationInitJob
+      tag: "25.0.1"
+      digest: sha256:6ab881b446d29a0e5363cb7a43266dc9ee1dcf729697bc1e9d9e79673cd7ff1f
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:5e5ade4f614d65d49ac1fc812f4014077d094e774296278aa3d2d8d2b78cf677
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:7af29aaf09adec3fa4a1ebce91924857d7717d7bf75191db23aa7080e7912137
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:6bab4f0f6e3c6e6dd631490c22108223bdff33dbf889023fddc71be071f3a216
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baBASImages: {}
+    - image: cp/cp4a/bas/dba-dbcompatibility-initcontainer
+      metadata:
+        description: Business Automation Studio DBA DBCompatibility Init Container
+          Image
+        name: basDBAdbCompatibilityInitContainer
+      tag: "25.0.1"
+      digest: sha256:197e875d1c895abfb2932cf6bb02602fd8beb0f9536b49b9ae1abff593ee6602
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:3e6b5b9cbfe9befb050f0e8e667332343b2e1af4c23612150b9f0113053322a8
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:2f641999c94d47f2498304051f2175e059ba1f20b78225808f5ce8810643924b
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:7cc3b303e528419047e4b285f851af9c3b0ca6f07a797bae6fadbf74f22a73ee
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baBASImages: {}
+    - image: cp/cp4a/aae/solution-server
+      metadata:
+        description: Application Engine Solution Server Image
+        name: aaeSolutionServer
+      tag: "25.0.1"
+      digest: sha256:c1ec4ef9acaf0a8c5e85f539563b6b5f0e9950ea5452cdbb9fba2da149d37a6c
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:382fdcafcf4e0a8318d4c5ff827361f05c9b3ae0aa3f6e21dc5bec13fec9e67f
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:fa239caaf6de6e8570fe2751e192fa9245d95085712078c3ed56266afafb7d4b
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:3a31811304d73a8708d3fdbee0e599b5bdb2fe677be45cdb742c4500f46da674
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baAAEImages: {}
+    - image: cp/cp4a/aae/dba-etcd
+      metadata:
+        description: Application Engine DBA ETCD Image
+        name: aaeDbaEtcd
+      tag: "25.0.1"
+      digest: sha256:7861aab178ee179f895c4ca252e26ec8cd70aaa410207a4fabcb36e7e9da9c50
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:682845357cc3070024db3c095d7341cb1cf232e5eed1849655798bec811a576a
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:163f4ec36a823a16a2800f58e5faa8ac503cdd6875001e4c8fdd449277b61852
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:9ae8e3a0f74c228eca5aff98af929f5638b0e5f53c0e8eb7e321d02e2f370915
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baAAEImages: {}
+    - image: cp/cp4a/aae/solution-server-helmjob-db
+      metadata:
+        description: Application Engine Solution Server Helmjob DB Image
+        name: aaeSolutionServerHelmjobDb
+      tag: "25.0.1"
+      digest: sha256:6c5e8832788f9238b3e87fc5ba42f8d1d2bd3be480403b9e1ef43b305915dff7
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:cb4a79a8fa973a7cb5eced4b6572aefdf39fe412d32ab883aab7cabe9598e985
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:18900bb07a750abf474c58d0a8d5b9027efdcbcea669b330aca48e8026893550
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:81f023b2dae0988bf21e1dfb572272e01e42249e86c360740014352d7e8ccc92
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baAAEImages: {}
+    - image: cp/cp4a/aae/dba-keytool-initcontainer
+      metadata:
+        description: Application Engine DBA Keytool Init Container Image
+        name: aaeDbaKeytoolInitContainer
+      tag: "25.0.1"
+      digest: sha256:ea5065f3f8e29f9ae43badfea932166a344748b725cd297f88ddd8d43c9129ec
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:7be757ab83b9dbbf2a8c64cff0c73d5fa9e1cb1169d009a7d30c8a442c529274
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:b6889553101ed7c9301d02c02c9c3212e5e6a7afb9ea0fc34c57ecde3043f20e
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:73ff950e6a9198294cdbec7d188e103d1c68c6e9cf2cf3b9b6d69c1b1c00b1a6
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baAAEImages: {}
+    - image: cp/cp4a/aae/dba-umsregistration-initjob
+      metadata:
+        description: Application Engine DBA UMS Registration InitJob Image
+        name: aaeUMSRegistrationInitJob
+      tag: "25.0.1"
+      digest: sha256:6ab881b446d29a0e5363cb7a43266dc9ee1dcf729697bc1e9d9e79673cd7ff1f
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:5e5ade4f614d65d49ac1fc812f4014077d094e774296278aa3d2d8d2b78cf677
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:7af29aaf09adec3fa4a1ebce91924857d7717d7bf75191db23aa7080e7912137
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:6bab4f0f6e3c6e6dd631490c22108223bdff33dbf889023fddc71be071f3a216
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baAAEImages: {}
+    - image: cp/cp4a/aae/dba-dbcompatibility-initcontainer
+      metadata:
+        description: Application Engine DBA DBCompatibility Init Container Image
+        name: aaeDbaInitContainer
+      tag: "25.0.1"
+      digest: sha256:197e875d1c895abfb2932cf6bb02602fd8beb0f9536b49b9ae1abff593ee6602
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:3e6b5b9cbfe9befb050f0e8e667332343b2e1af4c23612150b9f0113053322a8
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:2f641999c94d47f2498304051f2175e059ba1f20b78225808f5ce8810643924b
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:7cc3b303e528419047e4b285f851af9c3b0ca6f07a797bae6fadbf74f22a73ee
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baAAEImages: {}
+    - image: cp/cp4a/ums/ums
+      metadata:
+        description: UMS Container Image
+        name: umsContainer
+      tag: "25.0.1"
+      digest: sha256:8393b0efadf543cf0b2ff7774609728d7085cdecfeb216d3b1be9803aa2ec497
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:2773625707ea22a92abf0b7374c341f136b2748a2f061f39bcba22b118169dfc
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:52f77cf96a8770919b581902f059d4dabe72812037df9b75b71bbb11a581ae41
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:388171ced9449d88555c3028035485c6f342cd89de2bcd8b19539f5f6fb1e396
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baUMSImages: {}
+    - image: cp/cp4a/ums/dba-keytool-initcontainer
+      metadata:
+        description: UMS DBA Keytool Init Container Image
+        name: umsDbaKeytoolInitContainer
+      tag: "25.0.1"
+      digest: sha256:ea5065f3f8e29f9ae43badfea932166a344748b725cd297f88ddd8d43c9129ec
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:7be757ab83b9dbbf2a8c64cff0c73d5fa9e1cb1169d009a7d30c8a442c529274
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:b6889553101ed7c9301d02c02c9c3212e5e6a7afb9ea0fc34c57ecde3043f20e
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:73ff950e6a9198294cdbec7d188e103d1c68c6e9cf2cf3b9b6d69c1b1c00b1a6
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baUMSImages: {}
+    - image: cp/cp4a/ums/dba-keytool-jobcontainer
+      metadata:
+        description: UMS DBA Keytool Job Container Image
+        name: umsDbaKeytoolJobContainer
+      tag: "25.0.1"
+      digest: sha256:4793c8d1d61cdfc6f6bc3192d405f74bff4e1016ec29364de5a36ca4382e6aeb
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:ed7d755291a47e65fe11bf36c1f2ace72e91e4a701402f2448be244627760987
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:232d5d2caeb0385329bcfb176bd4f77524f957c8d638909203325063cd06d9f5
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:8d039411a2233f75f4ec8da9f2df5a20c65498e7cf9723bc6af333d3e8174ad1
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baUMSImages: {}
+    - image: cp/cp4a/ums/dba-ums-secret-initcontainer
+      metadata:
+        description: UMS DBA Secret Init Container Image
+        name: umsDbaSecretInitContainer
+      tag: "25.0.1"
+      digest: sha256:43bb735531e5439b1169a2e9820ba8ce72cf84978a24f806e62ed5c9a1642c26
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:42b93b254a5bbe4d9d7e4ace7040665171c758ded731057abad2cc11f8f03fed
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:7e2d7c150aaa532585866fd2e9c9b1e372c91d70c308f5bd181e99f42f918085
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:869ed7a1d4e9f9a3748cc5bf923a71dc89668a04bdfd25dc39e178a18fa5d09f
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baUMSImages: {}
+    - image: cp/cp4a/ads/ads-runtime
+      metadata:
+        description: Automation Decision Services Runtime Image
+        name: adsRuntime
+      tag: "25.0.1"
+      digest: sha256:a84ac4d9e7ad16908efb560722d362b28dd9a68f215552a521af612766be33ac
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:efa30ee497d83fd82571103aa48e325e681c6521522f00f2942effd0a77df19b
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:d9511c62e4f747c5c70f2ce70d35237466dedd1f6678d5bd3232cbe813f6ae7a
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:d6cf1bfb913c7d9235d4c2f07754bc2a2a0a98e11bd70de1e2baa76edb9f2eb3
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baADSImages: {}
+    - image: cp/cp4a/ads/ads-rrintegration
+      metadata:
+        description: Automation Decision Services RR Integration Image
+        name: adsRRIntegration
+      tag: "25.0.1"
+      digest: sha256:39b1730c71a97abfb061b747a5adfd809c70a45da09cbd3c93dc4e3b4b2051aa
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:6d67506f7f49e73f0746bed1f7d256b7cffb06465692e34790bd8ffeab0e1eb8
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:b43c10b235f1d6ef1d27f568abb0dfd70e380d70316d6dc9a3527d0c126cb173
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:248f5026cb36c05589bef1ff486b6e705db0043f3e68e9f54f17f85f05ada3c1
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baADSImages: {}
+    - image: cp/cp4a/ads/ads-restapi
+      metadata:
+        description: Automation Decision Services RestAPI Image
+        name: adsRestAPI
+      tag: "25.0.1"
+      digest: sha256:ae7db5a3ca8ce2eb64be7d6216e84fdc5570e5436320dfbdf23e12da27e1803b
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:26ab0bdb8cca0572730c239c4f2558a1288d5c0b07e012ccc34c4e807fcb7356
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:62a44222b3111a978a6096225a0bb755e780036d47bb28486502a88d853c1171
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:353e36a2fee129d7bf8cc1295ff059a329294b37513d0759c3cbdc0c26ea25d6
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baADSImages: {}
+    - image: cp/cp4a/ads/ads-parsing
+      metadata:
+        description: Automation Decision Services Parsing Image
+        name: adsParsing
+      tag: "25.0.1"
+      digest: sha256:451fb02fae465aa5e0d77afbb7a848d3de00604f5c3ae9ca70786c16e2dc169a
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:0034274121a86aa98704d4277a5cd1bea5903b9baaaa4e114379d11e046733e6
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:fb32e175b22098078ac1820acee7f8200ccaa799f822e67be2b4725987c54368
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:7f4a0e25851bb970dbd34e416b52afc9f50be23d71de7ea228b850e7766658eb
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baADSImages: {}
+    - image: cp/cp4a/ads/ads-credentials
+      metadata:
+        description: Automation Decision Services Credentials Image
+        name: adsRuntime
+      tag: "25.0.1"
+      digest: sha256:51f054b2d69a564f66b72b404be439080503d20ad7a1611f57c2fc4ccfef87d4
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:ebc10fef99fe39f2a25da1705ad3404bf5eb33d069e262e4639107145e1e190d
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:3628bbac571f5acf7280a2262264df9fcd50250f73994dba59239d9cec36b0d3
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:80f269a815d1493a5cbbfb6744c09e88d4a3012ae94d674ca02a793db4554ee4
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baADSImages: {}
+    - image: cp/cp4a/ads/ads-run
+      metadata:
+        description: Automation Decision Services Run Image
+        name: adsRun
+      tag: "25.0.1"
+      digest: sha256:6e4efce190b9eee05bbcbd9fa3a768bdd2f17267f776dea7ac1c96a50407561c
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:bfb05aef48804b71402f2c89226462a06a7cb092504831751b191b88dc545bbd
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:713eda322ed8331482465c8db049883cc235abfc0b50f822c3386026179bc57b
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:0194fabc5dbad19bef7dcd8ca1fd0f51b2d700c10447f11fd2abfee17a9452ec
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baADSImages: {}
+    - image: cp/cp4a/ads/ads-gitservice
+      metadata:
+        description: Automation Decision Services Git Service Image
+        name: adsGitService
+      tag: "25.0.1"
+      digest: sha256:1956fb208e794c65bb6da3944d0b659082fa36595a5b1c4248299cb3006e10bf
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:864cc95ccf913871f827cd43b6d2ff72605c9c8b513a173cc11878b041566565
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:47ed7ed0899d5ca2ee6c82b489d38d4f87266ee7f20d37a0e8d27e83b76aef66
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:c85a30f2d697a4b10898362b856cc5eef1f16ec19924a3c1f17a5b689525fa86
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baADSImages: {}
+    - image: cp/cp4a/ads/mongo
+      metadata:
+        description: Automation Decision Services Mongo Image
+        name: adsMongo
+      tag: "6.0.20"
+      digest: sha256:b721cff73d4da24cb3acc35d0e3799ddd514b1e40e1b4b9c1ee42c3f932ade77
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:29351f2c54c6831e4c3a8a61ceab8ec0886d1baa6f22594ae662dfda7796052e
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 6.0.20-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:7fa2a7cc554450d2842d5241d12f76f9d184782df35c7fbec746f9b56636911f
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 6.0.20-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:be70fcdab38e347e3380377d6aa7b4fb5a61bf38fe99b830c06034859e96b968
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 6.0.20-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baADSImages: {}
+    - image: cp/cp4a/ads/dba-keytool-initcontainer
+      metadata:
+        description: Automation Decision Services DBA Keytool Init Container Image
+        name: adsDBAKeytoolInitContainer
+      tag: "25.0.1"
+      digest: sha256:ea5065f3f8e29f9ae43badfea932166a344748b725cd297f88ddd8d43c9129ec
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:7be757ab83b9dbbf2a8c64cff0c73d5fa9e1cb1169d009a7d30c8a442c529274
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:b6889553101ed7c9301d02c02c9c3212e5e6a7afb9ea0fc34c57ecde3043f20e
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:73ff950e6a9198294cdbec7d188e103d1c68c6e9cf2cf3b9b6d69c1b1c00b1a6
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baADSImages: {}
+    - image: cp/cp4a/ads/dba-keytool-jobcontainer
+      metadata:
+        description: Automation Decision Services DBA Keytool Job Container Image
+        name: adsDBAKeytoolJobContainer
+      tag: "25.0.1"
+      digest: sha256:4793c8d1d61cdfc6f6bc3192d405f74bff4e1016ec29364de5a36ca4382e6aeb
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:ed7d755291a47e65fe11bf36c1f2ace72e91e4a701402f2448be244627760987
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:232d5d2caeb0385329bcfb176bd4f77524f957c8d638909203325063cd06d9f5
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:8d039411a2233f75f4ec8da9f2df5a20c65498e7cf9723bc6af333d3e8174ad1
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baADSImages: {}
+    - image: cp/cp4a/ads/dba-umsregistration-initjob
+      metadata:
+        description: Automation Decision Services DBA UMS Registration Init Job Image
+        name: adsDbaUmsRegistrationInitJob
+      tag: "25.0.1"
+      digest: sha256:6ab881b446d29a0e5363cb7a43266dc9ee1dcf729697bc1e9d9e79673cd7ff1f
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:5e5ade4f614d65d49ac1fc812f4014077d094e774296278aa3d2d8d2b78cf677
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:7af29aaf09adec3fa4a1ebce91924857d7717d7bf75191db23aa7080e7912137
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:6bab4f0f6e3c6e6dd631490c22108223bdff33dbf889023fddc71be071f3a216
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baADSImages: {}
+    - image: cp/cp4a/baw/workflow-server
+      metadata:
+        description: Business Automation Workflow WorkflowServer Image
+        name: bawWorkflowServer
+      tag: "25.0.1"
+      digest: sha256:df52f4ced5ab5b974241cfc3e75bf2ec17e7a25707627f5545a98b5fb3ee8840
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:eec9dd8821c6e996437c98b8d8d9b9e736994e240bafdec5d76828496ec69ef4
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:c670e5af4816b7d078928409324dd221875b4de2ff835e8c630ddc8d5f1be7e3
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:54c96361c9924eb06290484c165d506367a55ec272c369bf234b16aa454530f0
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baBAWImages: {}
+    - image: cp/cp4a/baw/workflow-assistant
+      metadata:
+        description: Business Automation Workflow WorkflowAssistant Image
+        name: bawWorkflowAssistant
+      tag: "25.0.1"
+      digest: sha256:5c00373bc491c172b7c9e90faa5808b72de53b0fce54d493a2aacd40d287caf7
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:2ce40601e289b38fc26ea2c0a7055126d97852be43b2cb983eb630e801312668
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:776d4a67b7bcd06ff4c8f2547943c3339c6f0d6f43221c3438105809fe37c129
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:578ded0f17fc4e38eab2f40858946bf9b461f4ac0a8bab3564125d1033268901
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baBAWImages: {}
+    - image: cp/cp4a/baw/workflow-server-dbhandling
+      metadata:
+        description: Business Automation Workflow WorkflowServer DBHandling Image
+        name: bawWorkflowServerDBHandling
+      tag: "25.0.1"
+      digest: sha256:d6d099ca88cd1c28ba0b3d174b9545dbb240a5ecf0b1d966df70ec3aa4f9ae45
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:77345d59a464e0fb70fe7f725e77abb1fafc35fb67a427cd35752e15f9022b7a
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:592b3438c84dece69bf7c38fcea4e01cf16d414e6c6388061330375fec488881
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:dcd931a86900e6fc056d448f55b532bd89ab69c7db7da7f3542cf570cc26069d
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baBAWImages: {}
+    - image: cp/cp4a/baw/workflow-server-case-initialization
+      metadata:
+        description: Business Automation Workflow CASE Initialization Image
+        name: bawCASEInitialization
+      tag: "25.0.1"
+      digest: sha256:c5e916e908091b747b37a6c9c4e22b6b1cd090204094a65e5c9c612a9e03df7e
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:c38415ce75d5a83f5371dc374cb1537ce63952dbe560ffa7ac7f10e269bef49e
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:e4d7c95a67be5bb32f06624ff6ef2dcd53165fe74e3ca3a692741b32d10c93ab
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:1c7e48bd5b4fd9f6f8ad23d97b7cb8e0958fc8deb2e883b9d03589ec19de1736
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baBAWImages: {}
+    - image: cp/cp4a/baw/iaws-ps-content-integration
+      metadata:
+        description: Business Automation Workflow Process Server Content Integration
+          Image
+        name: bawPSContentIntegration
+      tag: "25.0.1"
+      digest: sha256:1dd794c6060c82f9dbe4ee2273195b75fed9321f8962d4828bb36f5dc1ff9084
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:7fe118d8164c66faa716ae419d3d95e9f8e69bcbff26a09ac826cfaf7a312bd0
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:8f2ae271bdcc4dec91877dca659b9d3f71dfecef8cb8eeabcd1840cb0d5f2790
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:949c20e7a4937bba32b29c5f156fd9ab929847a37b5d922930761c1b58fa83fe
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baBAWImages: {}
+    - image: cp/cp4a/baw/iaws-ibm-workplace
+      metadata:
+        description: Business Automation Workflow IBM Workplace Image
+        name: bawIBMWorkplace
+      tag: "25.0.1"
+      digest: sha256:a73dd84202595af6530cd4f6819aa5a980e40fddb412352411e613d16b43f4ab
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:db4d0e0f062edef4ed130570d7401c94160bc81a47f17654969e16ac132450fa
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:962bd881554a113cd8a1292d6913f424372da139844d7a91b7adb07dd94ea817
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:addc536d2b4906bb8ef949f02a023015f80aae2f4ed75f452c109bc4ee78fcf1
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baBAWImages: {}
+        ibmcp4baPFSImages: {}
+    - image: cp/cp4a/baw/bui-task-prioritization
+      metadata:
+        description: Business Automation Workflow BUI Task Prioritization Image
+        name: bawBUITaskPrioritization
+      tag: "25.0.1"
+      digest: sha256:3ab710ddeac48130268304d6b32cef66ea42e018b7047bc3b426ab0dc011b75c
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:be8b83abec87e9ad244d76099532777376ca147b09cb086709874c13fb8ca51c
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      groups:
+        ibmcp4baBAWImages: {}
+    - image: cp/cp4a/baw/workforce-insights
+      metadata:
+        description: Business Automation Workflow Workforce Insights Image
+        name: bawWorkforceInsights
+      tag: "25.0.1"
+      digest: sha256:5e2ddbac5941c579f963b4c77d183fdfbf0135474a92427522d5ff6f10408fac
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:74cf21bd9945a6431c56a087159c20ce0bd6c51bf34b72a6a8192329f8b509fa
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      groups:
+        ibmcp4baBAWImages: {}
+    - image: cp/cp4a/baw/jms
+      metadata:
+        description: Business Automation Workflow JMS Image
+        name: bawJMS
+      tag: "25.0.1"
+      digest: sha256:d1862076ca8a4e6b4c535beaa04703ac960ebad0bb443168f09755d4ea44aad8
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:c39336278df515b3cc26f7c11ced1c4ba16c82c532cf2767af54a82b4e22770f
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:13fa352cec8fd470e04ba55fda5e2a18571ef8e138ef5e7a8db15b909495175d
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:f1d79e024313663102324dc9324837b28e1c1daae0ffb5690663464ce8955c98
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baBAWImages: {}
+    - image: cp/cp4a/baw/pfs-prod
+      metadata:
+        description: Business Automation Workflow PFS PROD Image
+        name: bawPFSProd
+      tag: "25.0.1"
+      digest: sha256:c41648fb0099951f9d7d48b81bc61c37173e5d9f92aeedf30d6bbdc242707c87
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:b6583c568c118a2cd86088d4263f405a72f20534e97bf4f79e40883d237323fa
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:b475667301dbb97ddf793f48f5b70ee184f5cefd4e86df47ec00d1cf83a99657
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:cc9c4ee9ad7b8e2bc41d6e37b419b7f88bf66141ffe6e8c4fc533f4968ebb472
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baPFSImages: {}
+    - image: cp/cp4a/baw/toolkit-installer
+      metadata:
+        description: Business Automation Workflow Toolkit Installer Image
+        name: bawToolKitInstaller
+      tag: "25.0.1"
+      digest: sha256:a30dc336534b3c62ca5ce7cb9278f3d61df284bd715692ba511ea5e386e7cc4b
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:63bcc668538a599225e9cc381daf1d4f0c392f3088a935349df5ba6deac4ddc8
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:202c35187f0bec70b6d99e287ae1d030cbac535168db4f9d9fc7bb36e9d96485
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:a0d130b8bcbd6a985502713a0ac4d0e8f2ba0e32ded5f44a8e699a5021a6c424
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baBAWImages: {}
+    - image: cp/cp4a/baw/dba-keytool-initcontainer
+      metadata:
+        description: Business Automation Workflow DBA Keytool Init Container Image
+        name: bawDBAKeytoolInitContainer
+      tag: "25.0.1"
+      digest: sha256:ea5065f3f8e29f9ae43badfea932166a344748b725cd297f88ddd8d43c9129ec
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:7be757ab83b9dbbf2a8c64cff0c73d5fa9e1cb1169d009a7d30c8a442c529274
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:b6889553101ed7c9301d02c02c9c3212e5e6a7afb9ea0fc34c57ecde3043f20e
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:73ff950e6a9198294cdbec7d188e103d1c68c6e9cf2cf3b9b6d69c1b1c00b1a6
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baBAWImages: {}
+        ibmcp4baPFSImages: {}
+    - image: cp/cp4a/baw/dba-keytool-jobcontainer
+      metadata:
+        description: Business Automation Workflow DBA Keytool Job Container Image
+        name: bawDBAKeytoolJobContainer
+      tag: "25.0.1"
+      digest: sha256:4793c8d1d61cdfc6f6bc3192d405f74bff4e1016ec29364de5a36ca4382e6aeb
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:ed7d755291a47e65fe11bf36c1f2ace72e91e4a701402f2448be244627760987
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:232d5d2caeb0385329bcfb176bd4f77524f957c8d638909203325063cd06d9f5
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:8d039411a2233f75f4ec8da9f2df5a20c65498e7cf9723bc6af333d3e8174ad1
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baBAWImages: {}
+    - image: cp/cp4a/baw/dba-umsregistration-initjob
+      metadata:
+        description: Business Automation Workflow DBA UMS Registration Init Job Image
+        name: bawDBAUmsRegistrationInitJob
+      tag: "25.0.1"
+      digest: sha256:6ab881b446d29a0e5363cb7a43266dc9ee1dcf729697bc1e9d9e79673cd7ff1f
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:5e5ade4f614d65d49ac1fc812f4014077d094e774296278aa3d2d8d2b78cf677
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:7af29aaf09adec3fa4a1ebce91924857d7717d7bf75191db23aa7080e7912137
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:6bab4f0f6e3c6e6dd631490c22108223bdff33dbf889023fddc71be071f3a216
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baBAWImages: {}
+        ibmcp4baPFSImages: {}
+    - image: cp/cp4a/baw/dba-dbcompatibility-initcontainer
+      metadata:
+        description: Business Automation Workflow DBA DBCompatibility Init Container
+          Image
+        name: bawDBAdbCompatibilityInitContainer
+      tag: "25.0.1"
+      digest: sha256:197e875d1c895abfb2932cf6bb02602fd8beb0f9536b49b9ae1abff593ee6602
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:3e6b5b9cbfe9befb050f0e8e667332343b2e1af4c23612150b9f0113053322a8
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:2f641999c94d47f2498304051f2175e059ba1f20b78225808f5ce8810643924b
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:7cc3b303e528419047e4b285f851af9c3b0ca6f07a797bae6fadbf74f22a73ee
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baBAWImages: {}
+    - image: cp/cp4a/workflow-ps/workflow-ps-server
+      metadata:
+        description: Workflow Process Service Container Image
+        name: wfpsWorkflowProcessServiceServer
+      tag: "25.0.1"
+      digest: sha256:9bbae0055526212fd7078078751ef79a4f933e8140f61541a4cbeb2f7c09514b
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:b21ae6e1e6f6de12ba609566039da2642ed6037ba563c82e0d940d3704ddb827
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:35a320a58d9298357271b7541f30c7d2ffe14a5f91b133d89bdd1a02eb6b6193
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:0aabd277c5efb22fe60797d5d26da24703e0296131e82793acf8c4a2cdce4e7c
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baWFPSImages: {}
+    - image: cp/cp4a/ier/ier
+      metadata:
+        description: IBM Enterprise Records Image
+        name: fncmIer
+      tag: "25.0.1"
+      digest: sha256:114814e4309ec636aaa8c95808a9844a213c05c63e2afebd7c9e97b96881762b
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:55f333d1b66023f470a1be381d9661dcc3732b180dcf3650fc247c7def172b59
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:08852068f43d2eb7caedb4f1706561c7b7314797aa47adfe22fbeabb7b074126
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:9817c8ee98baf08e02e5623aa3337d8279f9cfcafca51989747706cd51a9f2c3
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baFNCMImages: {}
+    - image: cp/cp4a/iadp/rabbitmq
+      metadata:
+        description: Automation Document Processing RabbitMQ Image
+        name: adpRabbitMq
+      tag: "25.0.1"
+      digest: sha256:4d85176b70d6a9c079095e3a2f748c860747348808a377c49d312187feec4532
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:05025eaf5bccf3d119290fbfb26262ff6af87d698f83311f050fd0572e38271e
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      groups:
+        ibmcp4baADPImages: {}
+    - image: cp/cp4a/iadp/wdu_runtime
+      metadata:
+        description: Automation Document Processing Waston DU Runtime Image
+        name: adpIbmOcr
+      tag: "25.0.1"
+      digest: sha256:834f76375d8803dbfadbf8a5a3551d0a551dd68406f428cdd7e30ec65b864109
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:dadd317e32cb5707abff6e108ef50404d619cdc9cb52f77db5611764ba42c516
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      groups:
+        ibmcp4baADPImages: {}
+    - image: cp/cp4a/iadp/wdu_models
+      metadata:
+        description: Automation Document Processing Waston DU Model Image
+        name: adpIbmOcrModel
+      tag: "25.0.1"
+      digest: sha256:e28a136280190811a4b6bf567b968456aa083a305e6db83f0ac22d7dbbe1ae07
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:3690885fe927726ec1d5cabb5cdfa9335d56d681e01e092730baf6b87ca9c491
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      groups:
+        ibmcp4baADPImages: {}
+    - image: cp/cp4a/iadp/doc_processing
+      metadata:
+        description: Automation Document Processing Document Processing Image
+        name: adpDocProcessing
+      tag: "25.0.1"
+      digest: sha256:227bac11d0411dbf1d29a7a80c4b037be421dad86ea6f970fb0b48447af0816e
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:d78f9efaea90790d843b744c0cb5d87aaca4a8ffc835b6ab1e077add2bd653f9
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      groups:
+        ibmcp4baADPImages: {}
+    - image: cp/cp4a/iadp/viewone
+      metadata:
+        description: Automation Document Processing Viewone Image
+        name: adpViewone
+      tag: "25.0.1"
+      digest: sha256:2ca0af9b92afa2ccc160dd1ad3a54b2a56b745019223a531500d6579932ffc2a
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:8761795aec5681499272fe5026626172e50ede59b67c1ab37b380394acb64df3
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      groups:
+        ibmcp4baADPImages: {}
+    - image: cp/cp4a/iadp/cdra
+      metadata:
+        description: Automation Document Processing CDRA Image
+        name: adpCdra
+      tag: "25.0.1"
+      digest: sha256:ef4418f8ff90c83cfa93a6d718f1b02651f3b7727a1387590c2229fa806e0587
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:43a56c197680813e3ed0c9552f25dd25770abb78fbf4409981079cca52f2a81f
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      groups:
+        ibmcp4baADPImages: {}
+    - image: cp/cp4a/iadp/cpds
+      metadata:
+        description: Automation Document Processing CPDS Image
+        name: adpCpds
+      tag: "25.0.1"
+      digest: sha256:983c6cf5a43813654ac929e6d78065ac13dc0c0906e1ba8e799894d67f6a97fd
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:47fe15f5c73734fc7b0ec898cb4da81041efe8033fcd8dbe04c64b3e11b20cf4
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      groups:
+        ibmcp4baADPImages: {}
+    - image: cp/cp4a/iadp/cds
+      metadata:
+        description: Automation Document Processing CDS Image
+        name: adpCds
+      tag: "25.0.1"
+      digest: sha256:f1966b4a3893d182e6bad0b7409e0856bb981794f3cd32c8fe23e97574d3328c
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:f0d773bfed3ec6bdc6d1c41adde4699e83ae5c8c757fa5fd2408fa375e1ebac8
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      groups:
+        ibmcp4baADPImages: {}
+    - image: cp/cp4a/iadp/gitgateway
+      metadata:
+        description: Automation Document Processing Git Gateway Image
+        name: adpGitGateway
+      tag: "25.0.1"
+      digest: sha256:9f4e1dd9f2416be619cefa6013e2d9d9d694260c647c8da4d2ce18f42ab6df04
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:864cc95ccf913871f827cd43b6d2ff72605c9c8b513a173cc11878b041566565
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      groups:
+        ibmcp4baADPImages: {}
+    - image: cp/cp4a/iadp/mongo_adp
+      metadata:
+        description: Automation Document Processing Mongo Image
+        name: adpMongo
+      tag: "6.0.20"
+      digest: sha256:b721cff73d4da24cb3acc35d0e3799ddd514b1e40e1b4b9c1ee42c3f932ade77
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:29351f2c54c6831e4c3a8a61ceab8ec0886d1baa6f22594ae662dfda7796052e
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 6.0.20-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:7fa2a7cc554450d2842d5241d12f76f9d184782df35c7fbec746f9b56636911f
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 6.0.20-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:be70fcdab38e347e3380377d6aa7b4fb5a61bf38fe99b830c06034859e96b968
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 6.0.20-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baADPImages: {}
+    - image: cp/cp4a/iadp/dba-keytool-initcontainer
+      metadata:
+        description: Automation Document Processing DBA Keytoool Init Container Image
+        name: adpDbaInitKeytoolInitContainer
+      tag: "25.0.1"
+      digest: sha256:ea5065f3f8e29f9ae43badfea932166a344748b725cd297f88ddd8d43c9129ec
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:7be757ab83b9dbbf2a8c64cff0c73d5fa9e1cb1169d009a7d30c8a442c529274
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:b6889553101ed7c9301d02c02c9c3212e5e6a7afb9ea0fc34c57ecde3043f20e
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:73ff950e6a9198294cdbec7d188e103d1c68c6e9cf2cf3b9b6d69c1b1c00b1a6
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baADPImages: {}
+    - image: cp/cp4a/iccsap/iccsap
+      metadata:
+        description: IBM Content Collector for SAP Image
+        name: adpICCSap
+      tag: "25.0.1"
+      digest: sha256:151d20d060d8a18d11d1e2d1cac5422196951a8d2ca6104b3be7635168f6dc1d
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:d1b8059304ff36fe5a67de008555f58fb9b9a606d82ec9409a01ec995f5ac958
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:b1a11f98540b96587e2631dcab893661060dfce566064d7e31ec844a35f4cfd3
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      groups:
+        ibmcp4baFNCMImages: {}
+    - image: cp/cp4a/demo/openldap
+      metadata:
+        description: CP4BA Starter OpenLDAP Container Image
+        name: starterOpenLDAP
+      tag: "1.5.0.12"
+      digest: sha256:0d8f99f08ae71903c4cf424676f7a5110aeeecd950ae918033657c0353075b55
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:88732c8dbcd1c780f674ca261bd4efe11cda11167d5897ef827a2375ab08ad20
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 1.5.0.12-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:31548b685661e46faa5072af9a8e7c1f7a98bff9410e90bc5344fa1adb482efe
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 1.5.0.12-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:b104e0330ea8d1de38404e2afbc88da2a3828b7a418cb0ee1e3a9c9b7915c971
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 1.5.0.12-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baStarterImages: {}
+        ibmcp4baProd: {}
+    - image: cp/cp4a/demo/gitea
+      metadata:
+        description: CP4BA Starter Gitea Container Image
+        name: starterGitea
+      tag: "1.23.1"
+      digest: sha256:db4a6fc3145933baa0fee4f43210045594ce1059fc4a7c4092b53a897639c0b4
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:b8defe8c152f41cdd04b1fd788ea1012c1107bb65670d00fa80514d2e5673a0c
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 1.23.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:e85ddc3304c72051691cfa4e3222b95096d6e4c01f61c7d07ddeaa52a05fdd9a
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 1.23.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:e9499287266b6ba8741306c5c9ead2c620449c1108266f6cad27e3c0cca6890e
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 1.23.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baStarterImages: {}
+        ibmcp4baProd: {}
+    - image: cp/cp4a/icp4a-must-gather
+      metadata:
+        description: CP4BA must-gather image
+        name: cp4baMustgather
+      tag: "25.0.1"
+      digest: sha256:40bd7454bdeab1cdd06ce49e0297ecdafa8f2bf11ed1aff40558575ef0ab61f7
+      mediaType: application/vnd.docker.distribution.manifest.list.v2
+      registries:
+      - host: cp.icr.io
+      manifests:
+      - digest: sha256:d02c2503456bbd5a3143ba737ef8e1968c0170ce69d0d6f12b7784ec1f4a346b
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-amd64
+        platform:
+          architecture: amd64
+          os: linux
+      - digest: sha256:b5e39e841e566eae0a941a913f638f99f90a9135e624abad20a44cdaeb7b9c2a
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-s390x
+        platform:
+          architecture: s390x
+          os: linux
+      - digest: sha256:7c7cf7ca4d8c74bc6f091261e348e8dd0ca3c6f47c0cb43bf9a1a64d73a82e0f
+        mediaType: application/vnd.docker.distribution.manifest.v2
+        tag: 25.0.1-ppc64le
+        platform:
+          architecture: ppc64le
+          os: linux
+      groups:
+        ibmcp4baStarter: {}
+        ibmcp4baProd: {}
