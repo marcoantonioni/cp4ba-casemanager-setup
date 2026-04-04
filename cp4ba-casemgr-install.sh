@@ -57,6 +57,10 @@ getSpecificVersion () {
   _CP4BA_VER=$(curl -sk ${_CP4AUTO_INDEX_FILE} | grep "${_VER}:" -A1 | grep appVersion | sed 's/appVersion: //g' | sed 's/^ *//g')
   if [[ -z "${_CP4BA_VER}" ]]; then
     _CASE_VER=""
+  else
+    if [[ ! -z "${_CP4BA_VER}" ]]; then
+      _K8CERT_VER="${_CP4BA_VER}"
+    fi
   fi
 }
 
@@ -96,7 +100,8 @@ installCasePackMgr () {
       cd ./ibm-cp-automation-${_CASE_VER}/ibm-cp-automation/inventory/cp4aOperatorSdk/files/deploy/crs
       
       # old _CP4BA_VER
-      wget https://github.com/icp4a/cert-kubernetes/archive/refs/heads/${_K8CERT_VER}.zip
+      echo -e "Downloading kubernetes package: ${_CLR_YELLOW}${_K8CERT_VER}.zip${_CLR_NC}"
+      wget "https://github.com/icp4a/cert-kubernetes/archive/refs/heads/${_K8CERT_VER}.zip"
       unzip -o ${_K8CERT_VER}.zip 1>/dev/null
       mv ./cert-kubernetes-${_K8CERT_VER} ./cert-kubernetes
       if [[ "${_REMOVE_TGZ}" = "true" ]]; then
@@ -134,10 +139,6 @@ fi
 if [[ -z "${_DIR}" ]] ; then
   echo -e "usage: $_me\n  -d target-directory\n  -v(optional) package-version\n  -k(optional) cert-kubernetes-version\n  -n(optional) move-to-scripts-folder\n  -r(optional) remove-tar-file\n  -s(optional) show-available-versions"
   exit 1
-fi
-
-if [[ -z "${_K8CERT_VER}" ]]; then
-  _K8CERT_VER="${_VER}"
 fi
 
 if [[ -z "${_VER}" ]]; then

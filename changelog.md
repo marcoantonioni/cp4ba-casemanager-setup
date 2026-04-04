@@ -1,5 +1,15 @@
 # Change Log
 
+## [1.2.1] - 2026-04-04
+
+### Added
+
+### Changed
+
+### Fixed
+
+Download kubernetes package for specific fix.
+
 ## [1.2.0] - 2025-06-23
 
 ### Added
