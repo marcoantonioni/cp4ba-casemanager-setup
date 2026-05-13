@@ -22,9 +22,46 @@ _CLR_YELLOW="\033[1;33m"   #'1;32' is Yellow's ANSI color code
 _CLR_BLUE="\033[0;34m"   #'0;34' is Blue's ANSI color code
 _CLR_NC="\033[0m"
 
-# "\33[32m[✔] ${1}\33[0m"
-# "\33[33m[✗] ${1}\33[0m"
-# bold: echo -e "\x1B[1m${1}\x1B[0m\n"
+#----------------------------------------------------
+_SCRIPT_PATH="${BASH_SOURCE}"
+while [ -L "${_SCRIPT_PATH}" ]; do
+  _SCRIPT_DIR="$(cd -P "$(dirname "${_SCRIPT_PATH}")" >/dev/null 2>&1 && pwd)"
+  _SCRIPT_PATH="$(readlink "${_SCRIPT_PATH}")"
+  [[ ${_SCRIPT_PATH} != /* ]] && _SCRIPT_PATH="${_SCRIPT_DIR}/${_SCRIPT_PATH}"
+done
+_SCRIPT_PATH="$(readlink -f "${_SCRIPT_PATH}")"
+_SCRIPT_DIR="$(cd -P "$(dirname -- "${_SCRIPT_PATH}")" >/dev/null 2>&1 && pwd)"
+
+#----------------------------------------------------
+if [[ ! -f "$_SCRIPT_DIR/../cp4ba-logger/scripts/logger.sh" ]]; then
+  echo "Error, log package not found !"
+  echo "Clone it alongside with other cp4ba-..."
+  echo "use the command: git clone https://github.com/marcoantonioni/cp4ba-logger"
+  exit 1
+fi
+source $_SCRIPT_DIR/../cp4ba-logger/scripts/logger.sh
+if [[ -z "${CP4BA_LOGGING_ENABLED}" ]]; then 
+  export CP4BA_LOGGING_ENABLED=true
+fi
+if [[ -z "${CP4BA_LOG_LEVEL}" ]]; then 
+  export CP4BA_LOG_LEVEL="INFO"
+fi
+if [[ -z "${CP4BA_LOG_TO_CONSOLE}" ]]; then 
+  export CP4BA_LOG_TO_CONSOLE=true
+fi
+if [[ -z "${CP4BA_LOG_TO_FILE}" ]]; then 
+  export CP4BA_LOG_TO_FILE=false
+fi
+if [[ -z "${CP4BA_LOG_FILE}" ]]; then 
+  export CP4BA_LOG_FILE=""
+fi
+if [[ -z "${CP4BA_LOG_MAX_SIZE}" ]]; then 
+  export CP4BA_LOG_MAX_SIZE=$((10 * 1024 * 1024))
+fi
+if [[ -z "${CP4BA_LOG_BACKUP_COUNT}" ]]; then 
+  export CP4BA_LOG_BACKUP_COUNT=5
+fi
+
 
 #--------------------------------------------------------
 # read command line params
@@ -58,7 +95,7 @@ getSpecificVersion () {
   _CP4BA_VER=$(curl -sk ${_CP4AUTO_INDEX_FILE} | grep "${_VER}:" -A1 | grep appVersion | sed 's/appVersion: //g' | sed 's/^ *//g')
   if [[ -z "${_CP4BA_VER}" ]]; then
     _CASE_VER=""
-    echo "ERROR for 'appVersion' found empty value"
+    log_error "ERROR for 'appVersion' found empty value"
     exit 1
   fi
   if [[ -z "${_K8CERT_VER}" ]]; then
@@ -68,14 +105,10 @@ getSpecificVersion () {
 
 #---------------------------
 installCasePackMgr () {
-  #echo -e "${_CLR_YELLOW}=============================================================="
-  # echo -e "${_CLR_YELLOW}Installing case manager version '${_CLR_GREEN}${_CASE_VER}${_CLR_YELLOW}' for CP4BA version '${_CLR_GREEN}${_CP4BA_VER}${_CLR_YELLOW}' into folder '${_CLR_GREEN}${_DIR}${_CLR_YELLOW}'${_CLR_NC}"
-  echo -e "${_CLR_GREEN}Installing case manager version '${_CLR_YELLOW}${_CASE_VER}${_CLR_GREEN}' into folder '${_CLR_YELLOW}${_DIR}${_CLR_NC}${_CLR_GREEN}'${_CLR_NC}"
-  #echo -e "==============================================================${_CLR_NC}"
+  log_info "${_CLR_GREEN}Installing case manager version '${_CLR_YELLOW}${_CASE_VER}${_CLR_GREEN}' into folder '${_CLR_YELLOW}${_DIR}${_CLR_NC}${_CLR_GREEN}'${_CLR_NC}"
 
-  # echo ""
   if [[ -z "${_CASE_VER}" ]]; then
-    echo -e "${_CLR_RED}[✗] \x1b[5mERROR\x1b[25m: CP4BA Case Manager version '${_CLR_GREEN}${_VER}${_CLR_RED}' doesn't exist !${_CLR_NC}"
+    log_error "${_CLR_RED}[✗] \x1b[5mERROR\x1b[25m: CP4BA Case Manager version '${_CLR_GREEN}${_VER}${_CLR_RED}' doesn't exist !${_CLR_NC}"
     exit 1
   fi
   mkdir -p ${_DIR}
@@ -102,7 +135,7 @@ installCasePackMgr () {
       cd ./ibm-cp-automation-${_CASE_VER}/ibm-cp-automation/inventory/cp4aOperatorSdk/files/deploy/crs
       
       # old _CP4BA_VER
-      echo -e "Downloading kubernetes package: ${_CLR_YELLOW}${_K8CERT_VER}.zip${_CLR_NC}"
+      log_info "Downloading kubernetes package: ${_CLR_YELLOW}${_K8CERT_VER}.zip${_CLR_NC}"
       wget "https://github.com/icp4a/cert-kubernetes/archive/refs/heads/${_K8CERT_VER}.zip"
       unzip -o ${_K8CERT_VER}.zip 1>/dev/null
       mv ./cert-kubernetes-${_K8CERT_VER} ./cert-kubernetes
@@ -111,17 +144,16 @@ installCasePackMgr () {
       fi
       cd ${_OLOC}
     else
-      echo -e "${_CLR_RED}[✗] \x1b[5mERROR\x1b[25m: CP4BA Case Manager version '${_CLR_GREEN}${_VER}${_CLR_RED}'  not supported !${_CLR_NC}"
+      log_error "${_CLR_RED}[✗] \x1b[5mERROR\x1b[25m: CP4BA Case Manager version '${_CLR_GREEN}${_VER}${_CLR_RED}'  not supported !${_CLR_NC}"
       exit 1
       
     fi
   fi
 
   _SCRIPTS_FOLDER=${_DIR}"/ibm-cp-automation-${_CASE_VER}/ibm-cp-automation/inventory/cp4aOperatorSdk/files/deploy/crs/cert-kubernetes/scripts/"
-  # echo "Scripts folder: ${_SCRIPTS_FOLDER}"
   if [[ "${_STAY}" = "false" ]]; then
     cd ${_SCRIPTS_FOLDER}
-    echo "New bash shell is now in '${_SCRIPTS_FOLDER}' folder, type exit to return to prev. shell"
+    log_info "New bash shell is now in '${_SCRIPTS_FOLDER}' folder, type exit to return to prev. shell"
     exec bash
   fi
 
@@ -130,16 +162,16 @@ installCasePackMgr () {
 #===================================
 
 if [[ "${_SHOW_VERSIONS}" = "true" ]]; then
-  echo "--------------------------------------------------"
-  echo -e "${_CLR_GREEN}"
+  log_msg "--------------------------------------------------"
+  log_msg "${_CLR_GREEN}"
   curl -sk ${_CP4AUTO_INDEX_FILE}
-  echo -e "${_CLR_NC}"
-  echo "--------------------------------------------------"
+  log_msg "${_CLR_NC}"
+  log_msg "--------------------------------------------------"
   exit 1
 fi
 
 if [[ -z "${_DIR}" ]] ; then
-  echo -e "usage: $_me\n  -d target-directory\n  -v(optional) package-version\n  -k(optional) cert-kubernetes-version\n  -n(optional) move-to-scripts-folder\n  -r(optional) remove-tar-file\n  -s(optional) show-available-versions"
+  echo "usage: $_me\n  -d target-directory\n  -v(optional) package-version\n  -k(optional) cert-kubernetes-version\n  -n(optional) move-to-scripts-folder\n  -r(optional) remove-tar-file\n  -s(optional) show-available-versions"
   exit 1
 fi
 
