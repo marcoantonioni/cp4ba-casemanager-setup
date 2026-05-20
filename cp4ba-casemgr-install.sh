@@ -85,6 +85,12 @@ _CP4AUTO_INDEX_FILE="https://raw.githubusercontent.com/IBM/cloud-pak/master/repo
 getLatestVersion () {
   _CASE_VER=$(curl -sk ${_CP4AUTO_INDEX_FILE} | grep latestVersion | sed 's/latestVersion: //g')
   _CP4BA_VER=$(curl -sk ${_CP4AUTO_INDEX_FILE} | grep latestAppVersion | sed 's/latestAppVersion: //g')
+  if [[ -z "${_CP4BA_VER}" ]]; then
+    _CASE_VER=""
+    log_error "ERROR for 'latestAppVersion' found empty value"
+    log_warning "Check your proxy configuration."
+    exit 1
+  fi
   _VER="${_CASE_VER}"
   _K8CERT_VER=$_CP4BA_VER
 }
@@ -96,6 +102,7 @@ getSpecificVersion () {
   if [[ -z "${_CP4BA_VER}" ]]; then
     _CASE_VER=""
     log_error "ERROR for 'appVersion' found empty value"
+    log_warning "Check your proxy configuration."
     exit 1
   fi
   if [[ -z "${_K8CERT_VER}" ]]; then
