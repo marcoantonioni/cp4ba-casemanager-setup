@@ -112,6 +112,7 @@ getSpecificVersion () {
 
 #---------------------------
 installCasePackMgr () {
+  log_msg "=============================================================="
   log_info "${_CLR_GREEN}Installing case manager version '${_CLR_YELLOW}${_CASE_VER}${_CLR_GREEN}' into folder '${_CLR_YELLOW}${_DIR}${_CLR_NC}${_CLR_GREEN}'${_CLR_NC}"
 
   if [[ -z "${_CASE_VER}" ]]; then
