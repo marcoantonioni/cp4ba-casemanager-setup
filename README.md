@@ -48,6 +48,12 @@ _CMGR_FOLDER="/tmp/cmgr-$USER"
 _CMGR_VER="25.0.4"
 ./cp4ba-casemgr-install.sh -d ${_CMGR_FOLDER} -v ${_CMGR_VER}
 
+### example: version 25.1.1 and fix package, move shell to scripts folder, remove .tar file
+_CMGR_FOLDER="/tmp/cmgr-$USER"
+_CMGR_VER="25.1.1"
+_K_VER="25.0.1-IF001"
+./cp4ba-casemgr-install.sh -d ${_CMGR_FOLDER} -v ${_CMGR_VER} -n -r
+
 ```
 ### WARNING for version 25.1.0
 
